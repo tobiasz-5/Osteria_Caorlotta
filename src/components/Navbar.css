@@ -123,9 +123,9 @@
   position: relative; /* Per usare il pseudo-elemento ::after */
   text-align: center;
   text-decoration: none;
-  color:  #FFF;
-  padding: 10px 42px 5px 38px; 
-  font-size: 24px;
+  color:  #FFFFFF;
+  padding: 42px 42px 0px 38px; 
+  font-size: 19px;
   /* font-size: 21px; */
   /* font-weight: 501; */
   /* font-weight: bold; */
@@ -204,12 +204,12 @@
   /* margin: 10px; */
 }
 
-.navbar-links {
-  gap: 42px;
-}
+/* .navbar-links {
+  gap: 2px;
+} */
 
 /* Responsive styles */
-@media (max-width: 1370px) {
+@media (max-width: 1024px) {
   /* Mostra il bottone menu */
   .menu-button {
     display: flex;
@@ -263,20 +263,26 @@
   }
 }
 
-/* Stili per desktop */
-@media (min-width: 1371px) {
-  /* Assicura che i link siano visualizzati su desktop */
+@media (min-width: 1025px) {
+  .menu-button {
+    display: none !important;
+  }
+  .navbar-links {
+    display: flex !important;
+  }
+}
+
+/* @media (min-width: 1371px) {
   .navbar-links {
     display: flex !important;
     max-height: none;
     opacity: 1;
   }
 
-  /* Nasconde il bottone menu su desktop */
   .menu-button {
     display: none;
   }
-}
+} */
 
 /* Overlay quando il menu è aperto */
 .overlay {
