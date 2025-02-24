@@ -21,6 +21,9 @@ function DoveSiamo() {
     <div className="dove-siamo">
       <div className="additional-layer"></div>
       <div className="additional-layer2"></div>
+      <p className="address-text">
+      📍 Lungarno Amerigo Vespucci, 34r, 50123 Firenze FI, Italia
+      </p>
       {showMap ? (
         <iframe
           title="Mappa"

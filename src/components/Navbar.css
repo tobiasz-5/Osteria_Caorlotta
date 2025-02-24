@@ -272,6 +272,14 @@
   }
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    top: 0 !important; /* La navbar sarà sempre visibile */
+    transform: translateY(0) !important;
+  }
+}
+
+
 /* @media (min-width: 1371px) {
   .navbar-links {
     display: flex !important;

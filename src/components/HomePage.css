@@ -14,7 +14,7 @@
     padding: 0 10px;
   }
   
-  .home-buttons {
+  /* .home-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -24,7 +24,23 @@
   .btn-prenota {
     flex: 1 1 200px;
     white-space: nowrap;
+  } */
+
+  .home-buttons {
+    display: flex;
+    flex-direction: column; /* Disposizione verticale */
+    align-items: center; /* Centra orizzontalmente */
+    justify-content: center; /* Centra verticalmente */
+    gap: 20px;
+    width: 100%; /* Occupa tutta la larghezza disponibile */
   }
+  
+  .btn-prenota {
+    flex: none; /* Rimuove la flessibilità */
+    width: 200px; /* Imposta una larghezza fissa */
+    text-align: center; /* Centra il testo */
+  }
+  
 
   /* .homepage-bottom-logo {
     position: fixed;

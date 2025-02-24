@@ -43,3 +43,9 @@
     color: #76bbff;
   }
   
+  @media (max-width: 768px) { 
+    .footer {
+      display: none; /* Nasconde il footer su schermi piccoli */
+    }
+  }
+  
