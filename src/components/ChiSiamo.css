@@ -1,0 +1,428 @@
+.chi-siamo {
+  /* position: relative; */
+  /* margin-top: 300px; */
+  margin-top: -20px;
+  margin-bottom: -20px;
+  width: 100%;
+  min-height: 100vh; /* Altezza minima per coprire l'intera finestra */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuisce lo spazio tra le sezioni */
+  padding: 20px;
+  background: linear-gradient(135deg,  rgb(215, 235, 215), rgb(145, 170, 180));
+}
+
+.chi-siamo h1 {
+  /* font-size: 2.5rem; */
+  margin-bottom: 20px;
+  /* color: #333; */
+  text-align: center;
+}
+
+.chi-siamo .testo_sez_1 {
+  padding-left: 155px;
+  padding-right: 155px;
+
+}
+
+.chi-siamo .testo_sez_2 {
+  padding-left: 80px;
+  padding-right: 194px;
+
+}
+
+.chi-siamo .testo_sez_3 {
+  padding-left: 200px;
+  padding-right: 20px;
+
+}
+
+.chi-siamo .testo_sez_4 {
+  padding-left: 84px;
+  padding-right: 242px;
+
+}
+
+.chi-siamo .testo_sez_5 {
+  padding-left: 190px;
+  padding-right: 14px;
+
+} 
+
+.section-left {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 91px;
+  padding-left: 82px;
+  padding-right: 24px;
+  /* color: rgb(255, 255, 255) !important; */
+}
+
+.section-right {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 100px;
+  padding-right: 94px;
+  padding-left: 24px;
+}
+
+.section-three {
+  display: flex;
+  align-items: center;
+  padding-top: 82px;
+  /* margin-bottom: 20px; */
+  padding-left: 85px;
+  padding-right: 110px;
+}
+
+.section-four {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-left: 42px;
+  padding-right: 94px;
+  padding-bottom: 42px;
+  padding-top: 100px;
+  /* color: rgb(255, 255, 255) !important; */
+}
+
+.section-five {
+  display: flex;
+  align-items: center;
+  padding-top: 82px;
+  /* margin-bottom: 20px; */
+  padding-left: 85px;
+  padding-right: 110px;
+}
+
+/* Prima sezione: Immagine a sinistra */
+.section-left img {
+  order: 1;
+  width: 40%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 2px;
+}
+
+.section-left p {
+  order: 2;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  line-height: 1.6;
+  /* color: #555; */
+}
+
+/* Seconda sezione: Immagine a destra */
+.section-right img {
+  order: 2;
+  width: 40%;
+  height: auto;
+  margin-left: 20px;
+  border-radius: 2px;
+}
+
+.section-right p {
+  order: 1;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  line-height: 1.6;
+  /* color: #555; */
+}
+
+.section-three img {
+  order: 1;
+  width: 40%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 2px;
+}
+
+.section-three p {
+  order: 2;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  line-height: 1.6;
+  /* color: #555; */
+}
+
+.section-four img {
+  order: 2;
+  width: 40%;
+  height: auto;
+  margin-left: 20px;
+  border-radius: 2px;
+}
+
+.section-four p {
+  order: 1;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  /* line-height: 1.6; */
+  /* color: #555; */
+}
+
+.section-left img,
+.section-right img,
+.section-three img,
+.section-four img {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.section-left img:hover,
+.section-right img:hover,
+.section-three img:hover,
+.section-four img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile base per tutti i paragrafi */
+.section-left p,
+.section-right p,
+.section-three p,
+.section-four p,
+.section-five p {
+  color: #555;
+}
+
+
+/* Stili per SCHERMI GRANDI / DESKTOP */
+@media (min-width: 1025px) {
+  /* Aumentiamo il font per i paragrafi delle sezioni */
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    /* color: #555; */
+    font-size: 1.42rem;
+    line-height: 1.8;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-left p,
+.section-right p,
+.section-three p,
+.section-four p {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.section-left img,
+.section-right img,
+.section-three img,
+.section-four img {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2.4s ease, transform 2.4s ease;
+  /* visibility: hidden; */
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  /* visibility: visible; */
+}
+
+/* Già presente nel tuo CSS */
+@media (max-width: 768px) {
+  .section-left,
+  .section-right {
+    flex-direction: column;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-left p,
+  .section-right p {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}
+
+/* MEDIA QUERIES PER iPHONE */
+
+/* iPhone in modalità portrait (es. max-width: 414px) */
+@media only screen and (max-width: 414px) {
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 100%;
+    font-size: 1rem; /* Font più piccolo per iPhone */
+  }
+}
+
+/* iPhone in modalità landscape (es. max-width: 667px per iPhone 8 in landscape) */
+@media only screen and (max-width: 667px) and (min-width: 415px) {
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    flex-direction: column;
+    padding: 40px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
+
+/* MEDIA QUERIES PER iPAD */
+
+/* iPad in modalità portrait (larghezza tipica 768px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .chi-siamo h1 {
+    font-size: 2.2rem;
+  }
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 45%; /* Manteniamo le immagini un po' più grandi su iPad */
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 50%; 
+    font-size: 1.1rem;
+  }
+}
+
+/* iPad in modalità landscape (larghezza tipica 1024px) */
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  .chi-siamo h1 {
+    font-size: 2.3rem;
+  }
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 40%;
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 55%; 
+    font-size: 1.2rem;
+  }
+}

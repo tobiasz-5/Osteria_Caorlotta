@@ -1,0 +1,94 @@
+/* src/components/CookieBanner.css */
+
+/* Evita che gli stili globali si applichino ai pulsanti all'interno del CookieBanner */
+.cookie-banner button {
+    font-size: 14px;
+    border-radius: 25px !important;
+    cursor: pointer;
+    background: none !important;
+}
+
+.cookie-banner a {
+  color: #002011 !important; /* Colore del link (personalizzabile) */
+  text-decoration: none !important; /* Sottolineatura del link */
+}
+
+.cookie-banner a:hover {
+  color: #002244 !important; /* Colore del link (personalizzabile) */
+}
+
+  
+  /* Stili per hover se necessario */
+.cookie-banner button:hover {
+    background-color: rgba(222, 219, 22, 0.1) !important;
+    border-radius: 25px !important;
+}
+
+.cookie-banner #rcc-decline-button {
+    /* color: rgb(42, 42, 42) !important; */
+    color: rgb(42, 42, 42) !important;
+
+    /* font-weight: bold; */
+}
+
+.cookie-banner #rcc-confirm-button {
+  /* color: rgb(42, 42, 42) !important; */
+  color: rgb(42, 42, 42) !important;
+  /* font-weight: bold; */
+}
+
+
+  .CookieConsent {
+    display: flex;
+    /* Centra i contenuti verticalmente */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 80%;
+    left: 50% !important;
+    font-size: 14px;
+    color: rgb(42, 42, 42) !important;
+    /* font-weight: bold; */
+    transform: translate(-50%, -50%); /* Per centrare perfettamente */
+    background-color: rgba(119, 119, 110, 0.7) !important;
+    border-radius: 20px;
+    padding: 20px; /* Aggiungi un po' di spazio interno */
+    z-index: 9999; /* Assicurati che sia sopra gli altri elementi */
+    width: 90%; /* Per adattarsi a schermi piccoli */
+    max-width: 600px; /* Limita la larghezza massima */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Aggiungi un'ombra per un look migliore */
+    text-align: center;
+}
+
+  /* Media query per tablet */
+@media (max-width: 1024px) {
+  .cookie-banner {
+    /* padding: 200px 300px; */
+    max-width: 500px;
+    font-size: 14px;
+  }
+}
+
+/* Media query per schermi piccoli (smartphone) */
+@media (max-width: 768px) {
+  .cookie-banner {
+    /* padding: 119px 242px; */
+    max-width: 400px;
+    font-size: 12px;
+  }
+}
+
+/* Media query per schermi molto piccoli */
+@media (max-width: 480px) {
+  .cookie-banner {
+    /* padding: 110px 168px; */
+    max-width: 100%;
+    font-size: 10px;
+  }
+
+  .CookieConsent{
+    padding: 5px;
+  }
+}
+
+  

@@ -1,0 +1,291 @@
+/* Navbar.css */
+
+/* Navbar sovrapposta, posizionata in modo fisso */
+.navbar {
+  position: fixed;
+  top: -70px; /* Nasconde la navbar lasciando visibile 10px (80px - 70px) */
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px; /* Altezza aumentata a 80px */
+  z-index: 1000;
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Navbar visibile */
+.navbar.visible {
+  transform: translateY(70px); /* Sposta la navbar verso il basso di 70px, rendendo visibili 10px */
+}
+
+/* Overlay dell'immagine di sfondo con effetto semi-trasparente */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/marmo.jpg'); /* Percorso corretto dell'immagine */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Mantiene l'opacità originale */
+  z-index: -1; /* Metti l'immagine dietro al contenuto della navbar */
+}
+
+/* Contenitore della navbar */
+.navbar-content {
+  display: flex;
+  align-items: center; /* Centra verticalmente gli elementi */
+  justify-content: center;
+  padding: 0px 0px 0px 172px; /* Aumenta il padding a sinistra e destra */
+  height: 100%; /* Occupare tutta l'altezza della navbar */
+  position: relative;
+}
+
+/* Logo della navbar */
+.navbar-logo {
+  position: absolute;
+  left: 7px;
+  display: flex;
+  align-items: center; /* Centra verticalmente il logo */
+  color: white;
+  flex-shrink: 0; /* Evita che il logo si riduca */
+  /* margin-right: 5rem; Spazio tra logo e link */
+}
+
+/* Stili specifici per l'immagine del logo */
+.navbar-logo img {
+  height: 7rem; /* Altezza predefinita per desktop */
+  width: auto;  /* Mantiene le proporzioni originali */
+  transition: height 0.3s ease-in-out;
+}
+
+/* Media Query per Tablet */
+@media (max-width: 1024px) {
+  .navbar-logo img {
+    height: 70px; /* Altezza ridotta su tablet */
+  }
+}
+
+/* Media Query per Dispositivi Mobili */
+@media (max-width: 768px) {
+  .navbar-logo img {
+    height: 60px; /* Altezza ulteriormente ridotta su mobile */
+  }
+}
+
+/* Link di navigazione */
+.navbar-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra i link */
+  align-items: center;
+  /* margin-left: 154px; */
+  /* margin-right: 7%; */
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  overflow: hidden;
+  max-height: none;
+  opacity: 1;
+}
+
+.navbar-links.open {
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  background-color: rgba(88, 88, 88, 0.9);
+  position: absolute;
+  /* bottom: 1000px; */
+  /* position: fixed; */
+  /* top: 100%; */
+  /* left: 0;
+  right: 0; */
+  /* height: 100%; */
+  /* padding: 124px 0; */
+  /* border-radius: 0 0 8px 8px; */
+  /* max-height: 500px; */
+  /* overflow-y: auto; */
+  /* opacity: 1; */
+  /* flex-direction: column; */
+ }
+
+.navbar-links li {
+  margin-bottom: 12px; /* Aumenta lo spazio tra le voci */
+  text-align: center;
+  /* width: 100%; */
+}
+
+.navbar-links li a {
+  display: block;
+  position: relative; /* Per usare il pseudo-elemento ::after */
+  text-align: center;
+  text-decoration: none;
+  color:  #FFF;
+  padding: 10px 42px 5px 38px; 
+  font-size: 24px;
+  /* font-size: 21px; */
+  /* font-weight: 501; */
+  /* font-weight: bold; */
+  /* color: #FFFFFF; */
+}
+
+.navbar-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Posiziona la linea esattamente sotto il link */
+  width: 0; /* La linea parte con larghezza zero */
+  height: 1px; /* Altezza della linea */
+  background-color: #d0d0c9; /* Colore della linea */
+  transition: width 0.3s ease-in-out; /* Transizione fluida */
+}
+
+.navbar-links li a:hover::after {
+  width: 100%; /* Espandi la linea su tutta la lunghezza del link */
+}
+
+
+/* Bottone menu - visibile solo su dispositivi mobili */
+.menu-button {
+  display: none; /* Nascondi il bottone su desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px; /* Aumenta il padding da 10px a 12px */
+  flex-shrink: 0;
+  display: flex;
+  align-items: center; /* Centra verticalmente gli elementi all'interno del bottone */
+}
+
+/* Icona del menu */
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  display: block;
+  /* position: relative; */
+  /* right: 40px; */
+  /* width: 30px; Aumenta la larghezza da 25px a 30px */
+  width: 21px; /* Aumenta la larghezza da 25px a 30px */
+  height: 4px; /* Aumenta l'altezza da 3px a 4px */
+  background-color: #d0d0c9;
+  margin: 3px 0; /* Aumenta il margin da 5px a 6px */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.menu-button.open .menu-icon {
+  background-color: transparent;
+}
+
+.menu-button.open .menu-icon::before {
+  transform: rotate(135deg) translate(5px, 5px);
+  /* transform: rotate(90deg) translate(5px, 5px); carino anche */
+
+}
+
+.menu-button.open .menu-icon::after {
+  transform: rotate(-135deg) translate(5px, -5px);
+}
+
+.menu-icon::before {
+  content: '';
+  position: relative;
+  top: -10px; /* Aumenta lo spostamento verticale da -8px a -10px */
+  /* margin: 10px; */
+}
+
+.menu-icon::after {
+  content: '';
+  position: relative;
+  top: -4px; /* Aumenta lo spostamento verticale da -3px a -4px */
+  /* margin: 10px; */
+}
+
+.navbar-links {
+  gap: 42px;
+}
+
+/* Responsive styles */
+@media (max-width: 1370px) {
+  /* Mostra il bottone menu */
+  .menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-right: 42px;
+  }
+
+  /* Nasconde i link di default */
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(40, 44, 52, 0.95);
+    position: absolute;
+    top: 100%; /* Posiziona sotto la navbar */
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px;
+    gap: 10px;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  /* Mostra i link quando il menu è aperto */
+  .navbar-links.open {
+    display: flex;
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  /* Allinea logo e bottone menu */
+  .navbar-content {
+    justify-content: right;
+    padding: 0 20px; /* Riduci il padding su mobile per più spazio */
+  }
+
+  /* Logo con margine destro per evitare sovrapposizioni */
+  .navbar-logo {
+    margin-right: 20px;
+  }
+
+  /* Aggiusta il padding dei link nel menu mobile */
+  .navbar-links li a {
+    padding: 12px 20px; /* Aumenta il padding verticale */
+    width: 100%; /* Occupano tutta la larghezza disponibile */
+    text-align: center; /* Centra il testo */
+    font-size: 20px; /* Aumenta la dimensione del font */
+  }
+}
+
+/* Stili per desktop */
+@media (min-width: 1371px) {
+  /* Assicura che i link siano visualizzati su desktop */
+  .navbar-links {
+    display: flex !important;
+    max-height: none;
+    opacity: 1;
+  }
+
+  /* Nasconde il bottone menu su desktop */
+  .menu-button {
+    display: none;
+  }
+}
+
+/* Overlay quando il menu è aperto */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-trasparente */
+  z-index: 999; /* Inferiore alla navbar */
+  transition: opacity 0.3s ease;
+}

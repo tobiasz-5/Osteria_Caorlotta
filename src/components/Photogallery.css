@@ -1,0 +1,186 @@
+.photogallery-container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 0; /* Sfondo sotto */
+  background-image: url('../assets/images/sala1.png'); /* Sfondo originale */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* opacity: 0.42; */
+}
+
+/* Livello opaco sopra lo sfondo originale */
+.photogallery-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/marmo.jpg'); 
+  background-size: cover; /* Proporzioni identiche allo sfondo originale */
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7; /* Regola l'opacità per trasparenza */
+  z-index: 0; /* Rimane sotto i contenuti */
+}
+
+.photogallery-container .additional-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+  background: rgba(252, 255, 255, 0.1); /* Esempio di colore trasparente */
+  opacity: 1;
+  pointer-events: none; /* Per evitare interferenze con la galleria */
+}
+
+.photogallery-container .additional-layer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+  background: rgba(255, 255, 254, 0.1); /* Esempio di colore trasparente */
+  opacity: 1;
+  pointer-events: none; /* Per evitare interferenze con la galleria */
+}
+
+.gallery-wrapper {
+  position: absolute;
+  z-index: 1; /* Contenuto sopra i livelli di sfondo */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 33px;
+}
+
+.gallery-grid {
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  margin: 0 50px;
+  cursor: grab;
+}
+
+.gallery-grid:active {
+  cursor: grabbing;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 480px;
+  height: 508px;
+  margin: 0 5px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  opacity: 0.95;
+
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 40px;
+  transform: translateY(-20%);
+  background-color: rgba(114, 114, 112, 0.7);
+  /* background-color: rgba(201, 201, 145, 0.5); */
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.scroll-button.left {
+  left: 18px;
+}
+
+.scroll-button.right {
+  right: 18px;
+}
+
+.scroll-button:hover {
+  background-color: rgba(232, 237, 215, 0.5);
+  /* background-color: rgba(114, 114, 112, 0.7); */
+  transform: scale(1.1);
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 7px;
+  /* opacity: 0.2; */
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background-color: rgba(232, 237, 215, 0.5);
+  /* border: 1px solid rgb(0, 0, 0); */
+  /* opacity: 0.2; */
+  border-radius: 2px;
+}
+
+.gallery-grid:hover::-webkit-scrollbar-thumb {
+  /* opacity: 0.2; */
+  background-color: rgba(232, 237, 215, 0.1);
+}
+
+/* Media Query per dispositivi con larghezza massima di 768px */
+@media (max-width: 768px) {
+  .scroll-button {
+    display: none; /* Nasconde i pulsanti di scroll su mobile */
+  }
+
+  .gallery-grid {
+    margin: 0; /* Rimuove margini inutili */
+    scroll-snap-type: x mandatory;
+  }
+
+  .gallery-item {
+    flex: 0 0 auto; /* Ogni immagine occupa il 100% dello spazio visibile */
+    width: auto;
+    height: auto;
+    scroll-snap-align: start; /* Assicura l'allineamento all'inizio */
+    margin: 0; /* Rimuove margini che possono spostare le immagini */
+    cursor: auto;
+  }
+
+  .gallery-item img {
+    width: 70vh;
+    height: 70vh; /* Copre l'altezza completa della viewport */
+    object-fit: cover;
+    display: block; /* Elimina comportamenti inline */
+  }
+}
+
+/* Media Query per dispositivi con larghezza massima di 480px */
+@media (max-width: 480px) {
+  .gallery-item img {
+    height: 70vh; /* Assicura che l'immagine copra l'intera altezza dello schermo */
+    width: 70vh;
+    /* padding-left: 5px; */
+    /* padding-right: 5px;; */
+  }
+
+}

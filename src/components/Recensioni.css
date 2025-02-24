@@ -1,0 +1,107 @@
+.recensioni {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(120, 190, 210, 0.2);
+  z-index: 0;
+}
+
+.carosello {
+  position: relative;
+  width: 70%;
+  max-width: 600px;
+  /* overflow: visible; Permette alle frecce di uscire */
+}
+
+.carosello-immagine {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 7px 20px 18px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  overflow: hidden;
+  border-radius: 25px;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.carosello-immagine:hover {
+  transform: scale(1.05);
+}
+
+/* Nuovo stile per i bottoni laterali, ispirato a .scroll-button */
+.carosello-bottone {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-20%);
+  width: 22px;
+  height: 40px;
+  background-color: rgba(114, 114, 112, 0.7);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carosello-bottone.precedente {
+  left: -42px; /* Posizionato come nel file photogallery */
+}
+
+.carosello-bottone.successiva {
+  right: -42px;
+}
+
+.carosello-bottone:hover {
+  background-color: rgba(232, 237, 215, 0.5);
+  transform: scale(1.1);
+}
+
+/* Media Query per schermi medi (fino a 768px di larghezza) */
+@media (max-width: 768px) {
+  .carosello {
+    width: 90%;
+  }
+  
+  .carosello-bottone {
+    font-size: 16px;
+  }
+  
+  .carosello-bottone.precedente {
+    left: -33px;
+  }
+  
+  .carosello-bottone.successiva {
+    right: -33px;
+  }
+}
+
+/* Media Query per schermi molto piccoli (fino a 480px di larghezza) */
+@media (max-width: 480px) {
+  .carosello {
+    width: 95%;
+  }
+  
+  .carosello-bottone {
+    font-size: 14px;
+  }
+  
+  .carosello-bottone.precedente {
+    left: -27px;
+  }
+  
+  .carosello-bottone.successiva {
+    right: -27px;
+  }
+}

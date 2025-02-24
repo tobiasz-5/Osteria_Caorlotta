@@ -1,0 +1,42 @@
+.additional-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+    background: rgba(252, 255, 255, 0.1); /* Esempio di colore trasparente */
+    opacity: 1;
+    pointer-events: none; /* Per evitare interferenze con la galleria */
+  }
+  
+  .additional-layer2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+    background: rgba(255, 255, 254, 0.1); /* Esempio di colore trasparente */
+    opacity: 1;
+    pointer-events: none; /* Per evitare interferenze con la galleria */
+  }
+
+  .dove-siamo {
+    z-index: 1;
+    max-width: 820px;
+    font-size: 28px;
+    font-family: 'Lora', serif;
+    width: 100%; /* Prende tutta la larghezza disponibile */
+    margin: 0 auto; /* Centra il contenitore */
+  }
+
+  .dove-siamo iframe {
+    position: relative;
+    margin-top: 54px;
+    z-index: 2; /* Mappa sopra gli altri layer */
+    opacity: 1 !important; /* Rimuove qualsiasi opacità ereditata */
+    pointer-events: auto; /* Permette l'interazione con la mappa */
+    background: transparent; /* Assicura che lo sfondo della mappa resti invariato */
+  }
+  

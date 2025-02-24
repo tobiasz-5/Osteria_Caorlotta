@@ -1,0 +1,143 @@
+.menu-page {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/marmo.jpg');
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.menu-item {
+  position: relative;
+  width: 442px;
+  height: 529px;
+  margin: 0;
+  overflow: hidden;
+  cursor: cell;
+}
+
+.menu-item img {
+  width: 482px;
+  height: 563px;
+  max-width: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-item:hover img {
+  transform: scale(1.12);
+}
+
+.menu-item:hover {
+  z-index: 2;
+}
+
+.arrow {
+  background-color: rgba(184, 183, 154, 0.5);
+  border: none;
+  font-size: 14px;
+  color: #ffffff;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-20%);
+  background-color: rgba(149, 149, 135, 0.5);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 42px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(232, 237, 215, 0.5);
+  transform: scale(1.1);
+}
+
+.left-arrow {
+  left: -42px;
+}
+
+.right-arrow {
+  right: -42px;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    display: block; /* Sovrascrive display: flex */
+    opacity: 1;
+  }
+
+  .menu-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .menu-items {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    width: 100%;
+    margin: 0; /* Rimuove margini inutili */
+    padding: 0;
+    justify-content: flex-start; /* Sovrascrive justify-content: center */
+    align-items: flex-start; /* Sovrascrive align-items: center */
+  }
+
+  .menu-item {
+    flex: 0 0 100%; /* Ogni immagine occupa il 100% dello spazio visibile */
+    width: 100%;
+    height: auto;
+    scroll-snap-align: start; /* Assicura l'allineamento all'inizio */
+    margin: 0; /* Rimuove margini che possono spostare le immagini */
+    cursor: auto;
+    position: static; /* Sovrascrive position: relative */
+    overflow: visible; /* Sovrascrive overflow: hidden */
+  }
+
+  .menu-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Elimina comportamenti inline */
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .menu-item:hover img {
+    transform: none; /* Disabilita lo zoom su mobile */
+  }
+}
