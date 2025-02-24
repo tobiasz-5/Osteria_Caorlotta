@@ -68,14 +68,14 @@
   border-radius: 52px;
   background: linear-gradient(145deg, #f0fffd, #c4d9df);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  opacity: 0.5;
+  opacity: 0.75;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover {
   background: linear-gradient(145deg, #f8feff, #d9dcb2);
-  opacity: 0.85;
+  opacity: 0.9;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   transform: translate(-5px, -5px);
 }
