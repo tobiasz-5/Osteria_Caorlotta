@@ -203,7 +203,8 @@ textarea {
   font-family: 'Cormorant Garamond', serif;
   /* color: #000; */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  /* transition: background-color 0.3s ease; */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Personalizza il calendario del selettore data */
