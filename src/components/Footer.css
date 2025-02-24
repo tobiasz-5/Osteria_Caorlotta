@@ -21,7 +21,8 @@
   
   .footer-content p {
     margin: 0;
-    font-size: 14px;
+    font-size: 22px;
+    font-weight: 500;
   }
   
   .social-links {
