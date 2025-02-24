@@ -256,7 +256,7 @@
 
   /* Aggiusta il padding dei link nel menu mobile */
   .navbar-links li a {
-    padding: 12px 20px; /* Aumenta il padding verticale */
+    padding: 12px 12px; /* Aumenta il padding verticale */
     width: 100%; /* Occupano tutta la larghezza disponibile */
     text-align: center; /* Centra il testo */
     font-size: 20px; /* Aumenta la dimensione del font */
