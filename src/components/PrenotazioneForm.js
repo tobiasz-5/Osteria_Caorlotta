@@ -16,32 +16,17 @@ function PrenotazioneForm() {
     note: '',
   });
 
+  // Definisci orariPranzo e orariCena come costanti
+  const orariPranzo = ['12:30', '12:45', '13:00', '13:15', '13:30', '13:45'];
+  const orariCena = [
+    '19:00', '19:15', '19:30', '19:45', '20:00',
+    '20:15', '20:30', '20:45', '21:00', '21:15', '21:30', '21:45'
+  ];
+
   // Funzione per gestire i giorni di chiusura
   const giorniChiusura = (date) => {
     const giorno = date.getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
     return giorno !== 1; // Lunedì chiuso tutto il giorno
-  };
-
-  // Funzione per gestire gli orari disponibili in base al giorno
-  const orariDisponibili = () => {
-    const orariPranzo = ['12:30', '12:45', '13:00', '13:15', '13:30', '13:45'];
-    const orariCena = [
-      '19:00', '19:15', '19:30', '19:45', '20:00',
-      '20:15', '20:30', '20:45', '21:00', '21:15', '21:30', '21:45'
-    ];
-
-    const dataSelezionata = formData.data ? new Date(formData.data) : null;
-    if (!dataSelezionata) return []; // Se non è stata selezionata una data, ritorna un array vuoto
-
-    const giorno = dataSelezionata.getDay();
-
-    // Martedì, mercoledì, giovedì chiuso a pranzo, mostra solo cena
-    if (giorno >= 2 && giorno <= 4) {
-      return orariCena;  // Solo cena in questi giorni
-    }
-
-    // Mostra pranzo e cena negli altri giorni
-    return orariPranzo.concat(orariCena);
   };
 
   // Funzione per filtrare orari passati nel giorno corrente
@@ -64,7 +49,6 @@ function PrenotazioneForm() {
 
     return orari; // Se non è oggi, restituisci tutti gli orari
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -155,17 +139,16 @@ function PrenotazioneForm() {
           onChange={handleChange}
           required
         >
-          {/* Mostra sempre il messaggio iniziale */}
           <option value="">{t('selezionaOrario')}</option>
 
           {!formData.data ? (
-            <option disabled>{t('scegliPrimaLaData')}</option>  // Mostra il messaggio informativo
+            <option disabled>{t('scegliPrimaLaData')}</option>
           ) : (
             <>
               {/* Mostra pranzo solo nei giorni in cui è aperto */}
               {formData.data && ![2, 3, 4].includes(new Date(formData.data).getDay()) && (
                 <optgroup label={t('pranzo')}>
-                  {orariFiltratiPerOggi(orariDisponibili().slice(0, 6)).map((time) => (
+                  {orariFiltratiPerOggi(orariPranzo).map((time) => (
                     <option key={time} value={time}>{time}</option>
                   ))}
                 </optgroup>
@@ -175,7 +158,7 @@ function PrenotazioneForm() {
 
               {/* Mostra sempre gli orari di cena */}
               <optgroup label={t('cena')}>
-                {orariFiltratiPerOggi(orariDisponibili().slice(6)).map((time) => (
+                {orariFiltratiPerOggi(orariCena).map((time) => (
                   <option key={time} value={time}>{time}</option>
                 ))}
               </optgroup>
@@ -183,7 +166,7 @@ function PrenotazioneForm() {
           )}
         </select>
       </div>
-      <div style={{ flex: '1 1 100%' }}>  {/* Il campo note occupa tutta la larghezza */}
+      <div style={{ flex: '1 1 100%' }}>
         <textarea
           name="note"
           placeholder={t('note')}
@@ -191,7 +174,7 @@ function PrenotazioneForm() {
           onChange={handleChange}
         />
       </div>
-      <div style={{ flex: '1 1 100%' }}>  {/* Il pulsante occupa tutta la larghezza */}
+      <div style={{ flex: '1 1 100%' }}>
         <button type="submit" className="btn btn-submit">{t('prenota')}</button>
       </div>
     </form>
