@@ -53,7 +53,6 @@
 .footer-right {
   flex: 0 0 auto;
   text-align: right;
-
 }
 
 .footer-right p {
@@ -79,9 +78,33 @@
   color: #76bbff;
 }
 
-/* Se vuoi nasconderlo su mobile */
+/* Media query per mobile: il footer diventa parte del flusso della pagina */
 @media (max-width: 768px) {
   .footer {
-    display: none;
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 8px;
+    /* box-shadow: none; opzionale: rimuove l'ombra */
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex-direction: column;
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .footer-center {
+    padding-left: 0;
   }
 }

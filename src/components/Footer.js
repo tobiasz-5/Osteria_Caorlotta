@@ -47,13 +47,13 @@ function Footer() {
       <div className="footer-center">
         <p>{t('footer')}</p>
         <div className="social-links">
-          <a href="https://www.facebook.com/..." target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/p/Osteria-Caorlotta-Firenze-100088978474662/" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="social-icon" />
           </a>
-          <a href="https://www.instagram.com/..." target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/osteriacaorlottafirenze/" target="_blank" rel="noopener noreferrer">
             <FaInstagram className="social-icon" />
           </a>
-          <a href="https://www.tripadvisor.it/..." target="_blank" rel="noopener noreferrer">
+          <a href="https://www.tripadvisor.it/Restaurant_Review-g187895-d25226040-Reviews-Osteria_Caorlotta-Florence_Tuscany.html" target="_blank" rel="noopener noreferrer">
             <FaTripadvisor className="social-icon" />
           </a>
         </div>
