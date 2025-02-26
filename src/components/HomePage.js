@@ -24,8 +24,8 @@ function HomePage() {
       <div className="home-schedule">
         <p>
           Lungarno Amerigo Vespucci - 34r <br></br>
-          Venerdì - Sabato - Domenica: 12.30 - 13.45 | 19.00 - 21.45 <br></br>
-          Martedì - Mercoledì - Giovedì: 19.00 - 21.45<br></br>
+          {t('giorni_schedule_weekend')}: 12.30 - 13.45 | 19.00 - 21.45 <br></br>
+          {t('giorni_schedule_infraset')}: 19.00 - 21.45<br></br>
           📞 +39 345 169 1689 <br></br> 📧 osteriacaorlotta@gmail.com
         </p>
       </div>

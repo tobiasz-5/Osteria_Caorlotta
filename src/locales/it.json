@@ -29,6 +29,8 @@
     "salvaPreferenze": "Salva preferenze",
     "impostazioniPrivacy": "Per visualizzare la mappa, accetta i cookie. Vai alle ",
     "privacyLink": "impostazioni privacy",
+    "giorni_schedule_weekend": "Venerdì - Sabato - Domenica",
+    "giorni_schedule_infraset": "Martedì - Mercoledì - Giovedì",
     "navbar": {
         "prenotazione": "Prenota",
         "chi_siamo": "Chi siamo",

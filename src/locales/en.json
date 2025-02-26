@@ -29,6 +29,8 @@
     "salvaPreferenze": "Save preferences",
     "impostazioniPrivacy": "To view the map, please accept cookies. Visit the ",
     "privacyLink": "privacy settings",
+    "giorni_schedule_weekend": "Friday - Saturday - Sunday",
+    "giorni_schedule_infraset": "Tuesday - Wednesday - Thursday",
     "navbar": {
       "prenotazione": "Reservation",
       "chi_siamo": "About us",
