@@ -1,17 +1,24 @@
 import React from 'react';
-import PrenotazioneForm from './PrenotazioneForm';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import './PrenotazionePage.css'; // Importa il file CSS separato
+import PrenotazioneForm from './PrenotazioneForm';
+import './PrenotazionePage.css';
 
 function PrenotazionePage() {
-  const { t } = useTranslation(); // Inizializza la traduzione
+  const { t } = useTranslation();
 
   return (
-    <div className="prenotazione-page">
-      <div className="form-container">
-        <PrenotazioneForm />
+    <>
+      <Helmet>
+        <title>{t('seo.prenotazione_title')}</title>
+        <meta name="description" content={t('seo.prenotazione_description')} />
+      </Helmet>
+      <div className="prenotazione-page">
+        <div className="form-container">
+          <PrenotazioneForm />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

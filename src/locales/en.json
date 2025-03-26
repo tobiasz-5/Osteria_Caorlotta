@@ -1,4 +1,18 @@
 {
+    "seo": {
+      "title": "Caorlotta Restaurant | seafood venetian cuisine in the heart of Florence",
+      "description": "Discover Caorlotta Restaurant: authentic Venetian cuisine in the center of Florence. Book your table in a few clicks!",
+      "dove_siamo_title": "Where We Are | Caorlotta Restaurant",
+      "dove_siamo_description": "Discover our location: Lungarno Amerigo Vespucci, 34r, 50123 Florence FI, Italy. Visit us for an authentic experience.",
+      "menu_title": "Menu | Caorlotta Restaurant",
+      "menu_description": "Discover our menu: authentic venetian dishes prepared with fresh, high-quality ingredients.",
+      "prenotazione_title": "Reservation | Caorlotta Restaurant",
+      "prenotazione_description": "Book your table at Caorlotta Restaurant and enjoy an authentic experience with our venetian seafood cuisine.",
+      "recensioni_title": "Reviews | Caorlotta Restaurant",
+      "recensioni_description": "Read our customers' reviews and discover the authentic experience offered by Caorlotta Restaurant.",
+      "photogallery_title": "Photogallery | Caorlotta Restaurant",
+      "photogallery_description": "Explore our photo gallery and immerse yourself in the authentic atmosphere of Caorlotta Restaurant."
+    },
     "benvenuto": "Caorlotta",
     "nome": "First Name",
     "cognome": "Last Name",

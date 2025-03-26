@@ -1,4 +1,18 @@
 {
+    "seo": {
+      "title": "Osteria Caorlotta | Cucina Veneta nel centro di Firenze",
+      "description": "Scopri l'Osteria Caorlotta: cucina autentica veneta a Firenze. Lungarno Amerigo Vespucci, Prenota il tuo tavolo in pochi clic!",
+      "dove_siamo_title": "Dove Siamo | Osteria Caorlotta",
+      "dove_siamo_description": "Scopri la nostra ubicazione: Lungarno Amerigo Vespucci, 34r, 50123 Firenze FI, Italia. Vieni a trovarci per un'esperienza autentica.",
+      "menu_title": "Menu | Osteria Caorlotta",
+      "menu_description": "Scopri il nostro menu: piatti autentici della cucina veneta preparati con ingredienti freschi e di qualità.",
+      "prenotazione_title": "Prenotazione | Osteria Caorlotta",
+      "prenotazione_description": "Prenota il tuo tavolo all'Osteria Caorlotta e vivi un'esperienza autentica con la cucina veneta.",
+      "recensioni_title": "Recensioni | Osteria Caorlotta",
+      "recensioni_description": "Leggi le recensioni dei nostri clienti e scopri l'esperienza autentica offerta dall'Osteria Caorlotta.",
+      "photogallery_title": "Photogallery | Osteria Caorlotta",
+      "photogallery_description": "Esplora la nostra galleria fotografica e immergiti nell'atmosfera autentica dell'Osteria Caorlotta."
+    },
     "benvenuto": "Caorlotta",
     "nome": "Nome",
     "cognome": "Cognome",

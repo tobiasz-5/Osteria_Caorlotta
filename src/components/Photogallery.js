@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import './Photogallery.css';
 
 import piatto1 from '../assets/images/photogallery/piatto1.jpg';
@@ -32,13 +34,8 @@ import piatto28 from '../assets/images/photogallery/piatto28.jpg';
 import piatto29 from '../assets/images/photogallery/piatto29.jpg';
 import piatto30 from '../assets/images/photogallery/piatto30.jpg';
 
-
-
-
-
-// Importa altre immagini se necessario
-
 function Photogallery() {
+  const { t } = useTranslation();
   const images = [
     piatto1, piatto2, piatto3, piatto4, piatto5, piatto6, piatto7, piatto8,
     piatto9, piatto10, piatto11, piatto12, piatto13, piatto14, piatto15, piatto16,
@@ -82,47 +79,51 @@ function Photogallery() {
     const mid = rect.width / 2;          // Punto centrale
 
     if (clickX < mid) {
-      // Click nella metà sinistra => scorri a sinistra
       scrollLeft();
     } else {
-      // Click nella metà destra => scorri a destra
       scrollRight();
     }
   };
 
   return (
-    <div className="photogallery-container">
-      <div className="additional-layer"></div>
-      <div className="additional-layer2"></div>
-      <div className="additional-layer3"></div>
+    <>
+      <Helmet>
+        <title>{t('seo.photogallery_title')}</title>
+        <meta name="description" content={t('seo.photogallery_description')} />
+      </Helmet>
+      <div className="photogallery-container">
+        <div className="additional-layer"></div>
+        <div className="additional-layer2"></div>
+        <div className="additional-layer3"></div>
 
-      <div className="gallery-wrapper">
-        {/* Frecce visibili solo su desktop */}
-        {!isMobile && (
-          <button className="scroll-button left" onClick={scrollLeft}>
-            &#8249;
-          </button>
-        )}
+        <div className="gallery-wrapper">
+          {/* Frecce visibili solo su desktop */}
+          {!isMobile && (
+            <button className="scroll-button left" onClick={scrollLeft}>
+              &#8249;
+            </button>
+          )}
 
-        <div
-          className="gallery-grid"
-          ref={galleryRef}
-          onClick={handleGalleryClick}  // <-- Usa il click per decidere scroll left / right
-        >
-          {images.map((image, index) => (
-            <div className="gallery-item" key={index}>
-              <img src={image} alt={`Foto ${index + 1}`} loading="lazy" />
-            </div>
-          ))}
+          <div
+            className="gallery-grid"
+            ref={galleryRef}
+            onClick={handleGalleryClick}  // Usa il click per decidere scroll left/right
+          >
+            {images.map((image, index) => (
+              <div className="gallery-item" key={index}>
+                <img src={image} alt={`Foto ${index + 1}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          {!isMobile && (
+            <button className="scroll-button right" onClick={scrollRight}>
+              &#8250;
+            </button>
+          )}
         </div>
-
-        {!isMobile && (
-          <button className="scroll-button right" onClick={scrollRight}>
-            &#8250;
-          </button>
-        )}
       </div>
-    </div>
+    </>
   );
 }
 
