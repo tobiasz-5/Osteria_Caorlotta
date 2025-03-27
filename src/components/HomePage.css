@@ -28,7 +28,9 @@
   }
 
   .home-schedule {
-    margin-top: 28px;
+    position: absolute;
+    /* transform: translateY(170px); */
+    margin-top: 180px;
     line-height: 1.2;
     margin-bottom: -142px;
     padding-left: 40px;

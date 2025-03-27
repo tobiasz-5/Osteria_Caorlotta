@@ -103,7 +103,7 @@ function HomePage() {
 
       <div className="home-page">
         {/* SPOSTATO IN ALTO per migliorare il LCP */}
-        <div className="home-schedule" style={{ transform: 'translateY(180px)' }}>
+        <div className="home-schedule">
           <p>
             Lungarno Amerigo Vespucci - 34r <br />
             {t('giorni_schedule_weekend')}: 12.00 - 14.00 | 19.00 - 22.30 <br />
@@ -118,7 +118,7 @@ function HomePage() {
         </div>
 
         {/* Tutto il resto */}
-        <img src={logoImage} alt="Scritta" className="homepage-logo" />
+        <img src={logoImage} alt="Scritta" className="homepage-logo" loading="eager"/>
         <p className="homepage-subtitle">FIRENZE</p>
         <div className="home-buttons">
           <Link to="/prenotazione">
