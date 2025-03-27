@@ -102,9 +102,15 @@ function HomePage() {
 
 
       <div className="home-page">
-        {/* SPOSTATO IN ALTO per migliorare il LCP */}
+        <h1 className="visually-hidden">Osteria Caorlotta - Ristorante a Firenze</h1>
+        <img src={logoImage} alt="Scritta" className="homepage-logo"/>
+        <h2 className="homepage-subtitle">FIRENZE</h2>
+        <div className="home-buttons">
+          <Link to="/prenotazione">
+            <button className="btn btn-prenota">{t('prenota')}</button>
+          </Link>
+        </div>
         <div className="home-schedule">
-          <h1 className="visually-hidden">Osteria Caorlotta - Ristorante a Firenze</h1>
           <p>
               Lungarno Amerigo Vespucci - 34r <br />
               {t('giorni_schedule_weekend')}: 12.00 - 14.00 | 19.00 - 22.30 <br />
@@ -116,15 +122,6 @@ function HomePage() {
                 osteriacaorlotta@gmail.com
               </a>
           </p>
-        </div>
-
-        {/* Tutto il resto */}
-        <img src={logoImage} alt="Scritta" className="homepage-logo"/>
-        <h2 className="homepage-subtitle">FIRENZE</h2>
-        <div className="home-buttons">
-          <Link to="/prenotazione">
-            <button className="btn btn-prenota">{t('prenota')}</button>
-          </Link>
         </div>
       </div>
 
