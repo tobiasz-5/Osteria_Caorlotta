@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 import { useTranslation } from 'react-i18next';
 
 function Navbar() {

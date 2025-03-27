@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import logoImage from '../assets/images/scritta.png';
+import logoImage from '../assets/images/scritta.webp';
 import './HomePage.css';
 
 function HomePage() {

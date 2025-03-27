@@ -26,7 +26,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../assets/images/marmo.jpg'); /* Percorso corretto dell'immagine */
+  background-image: url('../assets/images/marmo.webp'); /* Percorso corretto dell'immagine */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,30 +49,30 @@
   position: absolute;
   left: 7px;
   display: flex;
-  align-items: center; /* Centra verticalmente il logo */
+  align-items: center; 
   color: white;
-  flex-shrink: 0; /* Evita che il logo si riduca */
+  flex-shrink: 0; 
   /* margin-right: 5rem; Spazio tra logo e link */
 }
 
 /* Stili specifici per l'immagine del logo */
 .navbar-logo img {
-  height: 7rem; /* Altezza predefinita per desktop */
-  width: auto;  /* Mantiene le proporzioni originali */
+  height: 7rem; 
+  width: auto;  
   transition: height 0.3s ease-in-out;
 }
 
 /* Media Query per Tablet */
 @media (max-width: 1024px) {
   .navbar-logo img {
-    height: 70px; /* Altezza ridotta su tablet */
+    height: 70px; 
   }
 }
 
 /* Media Query per Dispositivi Mobili */
 @media (max-width: 768px) {
   .navbar-logo img {
-    height: 60px; /* Altezza ulteriormente ridotta su mobile */
+    height: 60px; 
   }
 }
 
@@ -82,7 +82,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Centra i link */
+  justify-content: center; 
   align-items: center;
   /* margin-left: 154px; */
   /* margin-right: 7%; */
@@ -113,7 +113,7 @@
  }
 
 .navbar-links li {
-  margin-bottom: 12px; /* Aumenta lo spazio tra le voci */
+  margin-bottom: 12px; 
   text-align: center;
   /* width: 100%; */
 }
@@ -136,11 +136,11 @@
   content: '';
   position: absolute;
   left: 20%;
-  bottom: 0; /* Posiziona la linea esattamente sotto il link */
-  width: 0; /* La linea parte con larghezza zero */
-  height: 1px; /* Altezza della linea */
-  background-color: #d0d0c9; /* Colore della linea */
-  transition: width 0.3s ease-in-out; /* Transizione fluida */
+  bottom: 0; 
+  width: 0; 
+  height: 1px; 
+  background-color: #d0d0c9; 
+  transition: width 0.3s ease-in-out; 
 }
 
 .navbar-links li a:hover::after {
@@ -154,10 +154,10 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 12px; /* Aumenta il padding da 10px a 12px */
+  padding: 12px;
   flex-shrink: 0;
   display: flex;
-  align-items: center; /* Centra verticalmente gli elementi all'interno del bottone */
+  align-items: center; 
 }
 
 /* Icona del menu */
@@ -168,11 +168,11 @@
   display: block;
   /* position: relative; */
   /* right: 40px; */
-  /* width: 30px; Aumenta la larghezza da 25px a 30px */
-  width: 21px; /* Aumenta la larghezza da 25px a 30px */
-  height: 4px; /* Aumenta l'altezza da 3px a 4px */
+  /* width: 30px;  */
+  width: 21px; 
+  height: 4px; 
   background-color: #d0d0c9;
-  margin: 3px 0; /* Aumenta il margin da 5px a 6px */
+  margin: 3px 0;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
@@ -193,14 +193,14 @@
 .menu-icon::before {
   content: '';
   position: relative;
-  top: -10px; /* Aumenta lo spostamento verticale da -8px a -10px */
+  top: -10px; 
   /* margin: 10px; */
 }
 
 .menu-icon::after {
   content: '';
   position: relative;
-  top: -4px; /* Aumenta lo spostamento verticale da -3px a -4px */
+  top: -4px; 
   /* margin: 10px; */
 }
 
@@ -246,7 +246,7 @@
   /* Allinea logo e bottone menu */
   .navbar-content {
     justify-content: right;
-    padding: 0 20px; /* Riduci il padding su mobile per più spazio */
+    padding: 0 20px;
   }
 
   /* Logo con margine destro per evitare sovrapposizioni */
@@ -256,10 +256,10 @@
 
   /* Aggiusta il padding dei link nel menu mobile */
   .navbar-links li a {
-    padding: 12px 12px; /* Aumenta il padding verticale */
-    width: 100%; /* Occupano tutta la larghezza disponibile */
-    text-align: center; /* Centra il testo */
-    font-size: 20px; /* Aumenta la dimensione del font */
+    padding: 12px 12px; 
+    width: 100%;
+    text-align: center; 
+    font-size: 20px; 
   }
 }
 
@@ -298,7 +298,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-trasparente */
-  z-index: 999; /* Inferiore alla navbar */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   transition: opacity 0.3s ease;
 }
