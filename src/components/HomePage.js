@@ -104,22 +104,23 @@ function HomePage() {
       <div className="home-page">
         {/* SPOSTATO IN ALTO per migliorare il LCP */}
         <div className="home-schedule">
+          <h1 className="visually-hidden">Osteria Caorlotta - Ristorante a Firenze</h1>
           <p>
-            Lungarno Amerigo Vespucci - 34r <br />
-            {t('giorni_schedule_weekend')}: 12.00 - 14.00 | 19.00 - 22.30 <br />
-            {t('giorni_schedule_infraset')}: 19.00 - 22.30<br />
-            📞 <a href="tel:+393451691689" style={{ color: '#1030ff', textDecoration: 'none', }} aria-label="Chiama Osteria Caorlotta">
-              +39 345 169 1689
-            </a> <br />
-            📧 <a href="mailto:osteriacaorlotta@gmail.com" style={{ color: '#1030ff', textDecoration: 'none' }} aria-label="Invia una email a Osteria Caorlotta">
-              osteriacaorlotta@gmail.com
-            </a>
+              Lungarno Amerigo Vespucci - 34r <br />
+              {t('giorni_schedule_weekend')}: 12.00 - 14.00 | 19.00 - 22.30 <br />
+              {t('giorni_schedule_infraset')}: 19.00 - 22.30<br />
+              📞 <a href="tel:+393451691689" style={{ color: '#1030ff', textDecoration: 'none', }} aria-label="Chiama Osteria Caorlotta">
+                +39 345 169 1689
+              </a> <br />
+              📧 <a href="mailto:osteriacaorlotta@gmail.com" style={{ color: '#1030ff', textDecoration: 'none' }} aria-label="Invia una email a Osteria Caorlotta">
+                osteriacaorlotta@gmail.com
+              </a>
           </p>
         </div>
 
         {/* Tutto il resto */}
         <img src={logoImage} alt="Scritta" className="homepage-logo"/>
-        <p className="homepage-subtitle">FIRENZE</p>
+        <h2 className="homepage-subtitle">FIRENZE</h2>
         <div className="home-buttons">
           <Link to="/prenotazione">
             <button className="btn btn-prenota">{t('prenota')}</button>
