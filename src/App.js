@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import './i18n';
 import CookieBanner from './components/CookieBanner';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer'; 
 import LanguageSwitcher from './components/LanguageSwitcher';
 import HomePage from './components/HomePage';
 import PrenotazionePage from './components/PrenotazionePage';
@@ -14,13 +15,12 @@ import Recensioni from './components/Recensioni';
 import PhotoGallery from './components/Photogallery';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-
 function App() {
   const location = useLocation();
 
   return (
     <div className="App">
+      <Navbar />
       <header className="App-header">
         {location.pathname === '/' && <LanguageSwitcher />}
         <Routes>
@@ -34,11 +34,8 @@ function App() {
           <Route path="/photogallery" element={<PhotoGallery />} />
         </Routes>
       </header>
-
-      {/* Cookie Banner e Footer */}
       <CookieBanner />
-      <Footer />
-      <Navbar />
+      <Footer /> {/* Aggiungi il Footer qui  */}
     </div>
   );
 }
