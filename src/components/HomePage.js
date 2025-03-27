@@ -118,7 +118,7 @@ function HomePage() {
         </div>
 
         {/* Tutto il resto */}
-        <img src={logoImage} alt="Scritta" className="homepage-logo" loading="eager"/>
+        <img src={logoImage} alt="Scritta" className="homepage-logo"/>
         <p className="homepage-subtitle">FIRENZE</p>
         <div className="home-buttons">
           <Link to="/prenotazione">
