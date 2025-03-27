@@ -66,6 +66,7 @@ function Navbar() {
                 alt="Il Logo Caorlotta"
                 loading="lazy"
                 fetchpriority="low"
+                className="delayed-logo"
               />
             )}
           </Link>

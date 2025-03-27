@@ -34,6 +34,19 @@
   z-index: -1; /* Metti l'immagine dietro al contenuto della navbar */
 }
 
+/* Applica questa classe all'immagine del logo nella navbar */
+.delayed-logo {
+  opacity: 0;
+  animation: fadeInLogo 0.5s ease forwards;
+  animation-delay: 2.5s; /* Ritardo di 2.5 secondi */
+}
+
+@keyframes fadeInLogo {
+  to {
+    opacity: 1;
+  }
+}
+
 /* Contenitore della navbar */
 .navbar-content {
   display: flex;
