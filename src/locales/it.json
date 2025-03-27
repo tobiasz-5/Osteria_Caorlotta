@@ -60,5 +60,8 @@
         "testo_4": "Lasciatevi guidare dalla proposta culinaria di Pietro Benvenuti. Nasce da una famiglia di ristoratori e pescatori da cui ha potuto, fin da bambino, assimilare la tradizione culinaria e ittica del nostro territorio. Con cura e passione, ogni giorno, sceglie pescato fresco e ingredienti genuini per comporre piatti prelibati e rispettosi della materia prima che lavora con dedizione.",
         "testo_5": "In un paradisiaco e pittoresco locale in lungarno fatevi coccolare da Alika Antoniolli, riscoprite il piacere dello stare a tavola con l’attenzione del servizio che punta a viziarvi e deliziarvi con i sapori e i profumi dei nostri piatti e della nostra selezione di vini. Lasciatevi guidare alla scoperta di nuovi sapori per potervi regalare nuove emozioni..",
         "testo_6": "Desideriamo esprimere la nostra sincera gratitudine a voi, cari clienti, ormai amici, che ci state dando fiducia. Ci lasciamo ispirare anche da voi per ogni nuovo piccolo passo in avanti."
+      },
+      "photogallery": {
+        "imageAlt": "Piatto tipico della cucina veneta di Osteria Caorlotta: piatto-numero {{index}}: un'esperienza culinaria ricca di sapori genuini e unici."
       }
 }

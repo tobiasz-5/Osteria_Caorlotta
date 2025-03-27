@@ -53,7 +53,7 @@ function Recensioni() {
           <img
             ref={imgRef}
             src={immagini[indice]}
-            alt={`Recensione ${indice + 1}`}
+            alt={`Recensione lasciata a osteria Caorlotta n: ${indice + 1}`}
             className="carosello-immagine"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}

@@ -111,7 +111,7 @@ function Photogallery() {
           >
             {images.map((image, index) => (
               <div className="gallery-item" key={index}>
-                <img src={image} alt={`Foto ${index + 1}`} loading="lazy" />
+                <img src={image} alt={t('photogallery.imageAlt', { index: index + 1 })} loading="lazy" />
               </div>
             ))}
           </div>

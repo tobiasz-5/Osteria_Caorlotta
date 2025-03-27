@@ -32,7 +32,7 @@ function ChiSiamo() {
     <div className="chi-siamo">
       {/* Sezione 1 (img sinistra, testo a destra) */}
       <div className="section-left">
-        <img src={ingresso} alt="Immagine 1" className="hidden" />
+        <img src={ingresso} alt="ristorante osteria caorlotta, ingresso" className="hidden" />
         {/* Sostituisci il testo fisso con t('chi_siamo.testo_1') */}
         <p className="testo_sez_1 hidden">
           {t('chi_siamo.testo_1')}
@@ -44,12 +44,12 @@ function ChiSiamo() {
         <p className="testo_sez_2 hidden">
           {t('chi_siamo.testo_2')}
         </p>
-        <img src={insieme2} alt="Immagine 2" className="hidden" />
+        <img src={insieme2} alt="lungarno ristorante osteria caorlotta, ingresso" className="hidden" />
       </div>
 
       {/* Sezione 3 (img sinistra, testo a destra) */}
       <div className="section-three">
-        <img src={insieme} alt="Immagine 3" className="hidden" />
+        <img src={insieme} alt="Ristorante sul lungarno, cucina di pesce" className="hidden" />
         <p className="testo_sez_3 hidden">
           {t('chi_siamo.testo_3')}
         </p>
@@ -60,12 +60,12 @@ function ChiSiamo() {
         <p className="testo_sez_4 hidden">
           {t('chi_siamo.testo_4')}
         </p>
-        <img src={guanti} alt="Immagine 4" className="hidden" />
+        <img src={guanti} alt="seafood, cucina di pesce, carpaccio di tonno" className="hidden" />
       </div>
 
       {/* Sezione 5 (img sinistra, testo a destra) */}
       <div className="section-three">
-        <img src={alika2} alt="Immagine 5" className="hidden" />
+        <img src={alika2} alt="vino bianco, cucina di pesce" className="hidden" />
         <p className="testo_sez_5 hidden">
           {t('chi_siamo.testo_5')}
         </p>
@@ -76,7 +76,7 @@ function ChiSiamo() {
         <p className="testo_sez_4 hidden">
           {t('chi_siamo.testo_6')}
         </p>
-        <img src={interno1} alt="Immagine 6" className="hidden" />
+        <img src={interno1} alt="i tavoli di osteria caorlotta" className="hidden" />
       </div>
     </div>
   );

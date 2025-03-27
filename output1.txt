@@ -1,0 +1,2905 @@
+=== Inizio di src/App.test.js ===
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+
+
+=== Inizio di src/App.js ===
+import React from 'react';
+import './App.css';
+import './i18n';
+import CookieBanner from './components/CookieBanner';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer'; // Importa il Footer
+import LanguageSwitcher from './components/LanguageSwitcher';
+import HomePage from './components/HomePage';
+import PrenotazionePage from './components/PrenotazionePage';
+import MenuPage from './components/MenuPage';
+import ChiSiamo from './components/ChiSiamo';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import DoveSiamo from './components/DoveSiamo';
+import Recensioni from './components/Recensioni';
+import PhotoGallery from './components/Photogallery';
+import { Route, Routes, useLocation } from 'react-router-dom';
+
+function App() {
+  const location = useLocation();
+
+  return (
+    <div className="App">
+      <Navbar />
+      <header className="App-header">
+        {location.pathname === '/' && <LanguageSwitcher />}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/prenotazione" element={<PrenotazionePage />} />
+          <Route path="/chi-siamo" element={<ChiSiamo />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/dove-siamo" element={<DoveSiamo />} />
+          <Route path="/recensioni" element={<Recensioni />} />
+          <Route path="/photogallery" element={<PhotoGallery />} />
+        </Routes>
+      </header>
+      <CookieBanner />
+      <Footer /> {/* Aggiungi il Footer qui */}
+    </div>
+  );
+}
+
+export default App;
+
+
+
+=== Inizio di src/setupTests.js ===
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+
+
+=== Inizio di src/components/ChiSiamo.css ===
+.chi-siamo {
+  /* position: relative; */
+  /* margin-top: 300px; */
+  margin-top: -20px;
+  margin-bottom: -20px;
+  width: 100%;
+  min-height: 100vh; /* Altezza minima per coprire l'intera finestra */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuisce lo spazio tra le sezioni */
+  padding: 20px;
+  background: linear-gradient(135deg,  rgb(215, 235, 215), rgb(145, 170, 180));
+}
+
+.chi-siamo h1 {
+  /* font-size: 2.5rem; */
+  margin-bottom: 20px;
+  /* color: #333; */
+  text-align: center;
+}
+
+.chi-siamo .testo_sez_1 {
+  padding-left: 155px;
+  padding-right: 155px;
+
+}
+
+.chi-siamo .testo_sez_2 {
+  padding-left: 80px;
+  padding-right: 194px;
+
+}
+
+.chi-siamo .testo_sez_3 {
+  padding-left: 200px;
+  padding-right: 20px;
+
+}
+
+.chi-siamo .testo_sez_4 {
+  padding-left: 84px;
+  padding-right: 242px;
+
+}
+
+.chi-siamo .testo_sez_5 {
+  padding-left: 190px;
+  padding-right: 14px;
+
+} 
+
+.section-left {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 91px;
+  padding-left: 82px;
+  padding-right: 24px;
+  /* color: rgb(255, 255, 255) !important; */
+}
+
+.section-right {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 100px;
+  padding-right: 94px;
+  padding-left: 24px;
+}
+
+.section-three {
+  display: flex;
+  align-items: center;
+  padding-top: 82px;
+  /* margin-bottom: 20px; */
+  padding-left: 85px;
+  padding-right: 110px;
+}
+
+.section-four {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-left: 42px;
+  padding-right: 94px;
+  padding-bottom: 42px;
+  padding-top: 100px;
+  /* color: rgb(255, 255, 255) !important; */
+}
+
+.section-five {
+  display: flex;
+  align-items: center;
+  padding-top: 82px;
+  /* margin-bottom: 20px; */
+  padding-left: 85px;
+  padding-right: 110px;
+}
+
+/* Prima sezione: Immagine a sinistra */
+.section-left img {
+  order: 1;
+  width: 40%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 2px;
+}
+
+.section-left p {
+  order: 2;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  line-height: 1.6;
+  /* color: #555; */
+}
+
+/* Seconda sezione: Immagine a destra */
+.section-right img {
+  order: 2;
+  width: 40%;
+  height: auto;
+  margin-left: 20px;
+  border-radius: 2px;
+}
+
+.section-right p {
+  order: 1;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  line-height: 1.6;
+  /* color: #555; */
+}
+
+.section-three img {
+  order: 1;
+  width: 40%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 2px;
+}
+
+.section-three p {
+  order: 2;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  line-height: 1.6;
+  /* color: #555; */
+}
+
+.section-four img {
+  order: 2;
+  width: 40%;
+  height: auto;
+  margin-left: 20px;
+  border-radius: 2px;
+}
+
+.section-four p {
+  order: 1;
+  width: 60%;
+  /* font-size: 1.2rem; */
+  /* line-height: 1.6; */
+  /* color: #555; */
+}
+
+.section-left img,
+.section-right img,
+.section-three img,
+.section-four img {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.section-left img:hover,
+.section-right img:hover,
+.section-three img:hover,
+.section-four img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile base per tutti i paragrafi */
+.section-left p,
+.section-right p,
+.section-three p,
+.section-four p,
+.section-five p {
+  color: #555;
+}
+
+
+/* Stili per SCHERMI GRANDI / DESKTOP */
+@media (min-width: 1025px) {
+  /* Aumentiamo il font per i paragrafi delle sezioni */
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    /* color: #555; */
+    font-size: 1.42rem;
+    line-height: 1.8;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-left p,
+.section-right p,
+.section-three p,
+.section-four p {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.section-left img,
+.section-right img,
+.section-three img,
+.section-four img {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2.4s ease, transform 2.4s ease;
+  /* visibility: hidden; */
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  /* visibility: visible; */
+}
+
+/* Già presente nel tuo CSS */
+@media (max-width: 768px) {
+  .section-left,
+  .section-right {
+    flex-direction: column;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-left p,
+  .section-right p {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}
+
+/* MEDIA QUERIES PER iPHONE */
+
+/* iPhone in modalità portrait (es. max-width: 414px) */
+@media only screen and (max-width: 414px) {
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 100%;
+    font-size: 1rem; /* Font più piccolo per iPhone */
+  }
+}
+
+/* iPhone in modalità landscape (es. max-width: 667px per iPhone 8 in landscape) */
+@media only screen and (max-width: 667px) and (min-width: 415px) {
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    flex-direction: column;
+    padding: 40px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
+
+/* MEDIA QUERIES PER iPAD */
+
+/* iPad in modalità portrait (larghezza tipica 768px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .chi-siamo h1 {
+    font-size: 2.2rem;
+  }
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 45%; /* Manteniamo le immagini un po' più grandi su iPad */
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 50%; 
+    font-size: 1.1rem;
+  }
+}
+
+/* iPad in modalità landscape (larghezza tipica 1024px) */
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  .chi-siamo h1 {
+    font-size: 2.3rem;
+  }
+
+  .chi-siamo .testo_sez_1,
+  .chi-siamo .testo_sez_2,
+  .chi-siamo .testo_sez_3,
+  .chi-siamo .testo_sez_4,
+  .chi-siamo .testo_sez_5 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .section-left,
+  .section-right,
+  .section-three,
+  .section-four,
+  .section-five {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .section-left img,
+  .section-right img,
+  .section-three img,
+  .section-four img,
+  .section-five img {
+    width: 40%;
+  }
+
+  .section-left p,
+  .section-right p,
+  .section-three p,
+  .section-four p,
+  .section-five p {
+    width: 55%; 
+    font-size: 1.2rem;
+  }
+}
+
+
+
+=== Inizio di src/components/PrenotazionePage.css ===
+.prenotazione-page {
+  position: relative;
+  /* min-height: 10vh; */
+  max-height: 90vh;
+  padding-top: 3px;
+  /* margin-bottom: 1px; */
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Form: livello più alto */
+.form-container {
+  position: relative;
+  z-index: 2; /* Sopra gli altri layer */
+  width: 1000px;
+  max-width: 1200px;
+}
+
+/* Responsive design: Stili aggiuntivi per dispositivi mobili */
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%; /* Rendi il form più stretto sui dispositivi mobili */
+    max-width: none; /* Disabilita il limite massimo */
+    padding: 10px;
+    margin-top: 2px;
+  }
+
+  form {
+    flex-direction: column; /* Allinea i campi verticalmente */
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Rendi il form responsivo */
+    height: auto; /* Adatta l'altezza */
+    padding: 0px; 
+    margin-bottom: 11px;
+  }
+
+  form > div {
+    flex: 1 1 100%; /* I campi prendono tutta la larghezza */
+  }
+}
+
+
+
+=== Inizio di src/components/Footer.js ===
+// import React from 'react';
+// import { FaFacebook, FaInstagram, FaTripadvisor } from 'react-icons/fa';
+// import './Footer.css';
+// import { useTranslation } from 'react-i18next';
+
+// function Footer() {
+//   const { t } = useTranslation(); // Inizializza la traduzione
+//   return (
+//     <footer className="footer">
+//       <div className="footer-content">
+//         <p>{t('footer')}</p>
+//         <div className="social-links">
+//           <a href="https://www.facebook.com/p/Osteria-Caorlotta-Firenze-100088978474662/" target="_blank" rel="noopener noreferrer">
+//             <FaFacebook className="social-icon" />
+//           </a>
+//           <a href="https://www.instagram.com/osteriacaorlottafirenze/" target="_blank" rel="noopener noreferrer">
+//             <FaInstagram className="social-icon" />
+//           </a>
+//           <a href="https://www.tripadvisor.it/Restaurant_Review-g187895-d25226040-Reviews-Osteria_Caorlotta-Florence_Tuscany.html" target="_blank" rel="noopener noreferrer">
+//             <FaTripadvisor className="social-icon" />
+//           </a>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
+// export default Footer;
+
+
+import React from 'react';
+import { FaFacebook, FaInstagram, FaTripadvisor } from 'react-icons/fa';
+import './Footer.css';
+import { useTranslation } from 'react-i18next';
+
+function Footer() {
+  const { t } = useTranslation();
+  return (
+  <footer className="footer">
+    <div className="footer-content">
+      {/* Colonna sinistra */}
+      <div className="footer-left">
+        <p>Lungarno Amerigo Vespucci - 34r</p>
+      </div>
+
+      {/* Colonna centrale */}
+      <div className="footer-center">
+        <p>{t('footer')}</p>
+        <div className="social-links">
+          <a href="https://www.facebook.com/p/Osteria-Caorlotta-Firenze-100088978474662/" target="_blank" rel="noopener noreferrer">
+            <FaFacebook className="social-icon" />
+          </a>
+          <a href="https://www.instagram.com/osteriacaorlottafirenze/" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="social-icon" />
+          </a>
+          <a href="https://www.tripadvisor.it/Restaurant_Review-g187895-d25226040-Reviews-Osteria_Caorlotta-Florence_Tuscany.html" target="_blank" rel="noopener noreferrer">
+            <FaTripadvisor className="social-icon" />
+          </a>
+        </div>
+      </div>
+
+      {/* Colonna destra */}
+      <div className="footer-right">
+        <p>Credits: T. Schettini - T.N.T Media & Communication </p>
+      </div>
+    </div>
+  </footer>
+  );
+}
+
+export default Footer;
+
+
+
+=== Inizio di src/components/ChiSiamo.js ===
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next'; // <--- Import
+import insieme from '../assets/images/insieme.jpg';
+import insieme2 from '../assets/images/insieme2.jpg';
+import guanti from '../assets/images/guanti.jpg';
+import alika2 from '../assets/images/alika2.jpg';
+import ingresso from '../assets/images/ingresso.jpg';
+import interno1 from '../assets/images/interno1.jpg';
+
+import './ChiSiamo.css';
+
+function ChiSiamo() {
+  // Inizializzi la traduzione
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('.section-left p, .section-right p, .section-three p, .section-four p, .section-left img, .section-right img, .section-three img, .section-four img');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="chi-siamo">
+      {/* Sezione 1 (img sinistra, testo a destra) */}
+      <div className="section-left">
+        <img src={ingresso} alt="Immagine 1" className="hidden" />
+        {/* Sostituisci il testo fisso con t('chi_siamo.testo_1') */}
+        <p className="testo_sez_1 hidden">
+          {t('chi_siamo.testo_1')}
+        </p>
+      </div>
+
+      {/* Sezione 2 (img destra, testo a sinistra) */}
+      <div className="section-right">
+        <p className="testo_sez_2 hidden">
+          {t('chi_siamo.testo_2')}
+        </p>
+        <img src={insieme2} alt="Immagine 2" className="hidden" />
+      </div>
+
+      {/* Sezione 3 (img sinistra, testo a destra) */}
+      <div className="section-three">
+        <img src={insieme} alt="Immagine 3" className="hidden" />
+        <p className="testo_sez_3 hidden">
+          {t('chi_siamo.testo_3')}
+        </p>
+      </div>
+
+      {/* Sezione 4 (img destra, testo a sinistra) */}
+      <div className="section-four">
+        <p className="testo_sez_4 hidden">
+          {t('chi_siamo.testo_4')}
+        </p>
+        <img src={guanti} alt="Immagine 4" className="hidden" />
+      </div>
+
+      {/* Sezione 5 (img sinistra, testo a destra) */}
+      <div className="section-three">
+        <img src={alika2} alt="Immagine 5" className="hidden" />
+        <p className="testo_sez_5 hidden">
+          {t('chi_siamo.testo_5')}
+        </p>
+      </div>
+
+      {/* Sezione 6 (img destra, testo a sinistra) */}
+      <div className="section-four">
+        <p className="testo_sez_4 hidden">
+          {t('chi_siamo.testo_6')}
+        </p>
+        <img src={interno1} alt="Immagine 6" className="hidden" />
+      </div>
+    </div>
+  );
+}
+
+export default ChiSiamo;
+
+
+
+=== Inizio di src/components/Photogallery.js ===
+import React, { useRef, useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import './Photogallery.css';
+
+import piatto1 from '../assets/images/photogallery/piatto1.jpg';
+import piatto2 from '../assets/images/photogallery/piatto2.jpg';
+import piatto3 from '../assets/images/photogallery/piatto3.jpg';
+import piatto4 from '../assets/images/photogallery/piatto4.jpg';
+import piatto5 from '../assets/images/photogallery/piatto5.jpg';
+import piatto6 from '../assets/images/photogallery/piatto6.jpg';
+import piatto7 from '../assets/images/photogallery/piatto7.jpg';
+import piatto8 from '../assets/images/photogallery/piatto8.jpg';
+import piatto9 from '../assets/images/photogallery/piatto9.jpg';
+import piatto10 from '../assets/images/photogallery/piatto10.jpg';
+import piatto11 from '../assets/images/photogallery/piatto11.jpg';
+import piatto12 from '../assets/images/photogallery/piatto12.jpg';
+import piatto13 from '../assets/images/photogallery/piatto13.jpg';
+import piatto14 from '../assets/images/photogallery/piatto14.jpg';
+import piatto15 from '../assets/images/photogallery/piatto15.jpg';
+import piatto16 from '../assets/images/photogallery/piatto16.jpg';
+import piatto17 from '../assets/images/photogallery/piatto17.jpg';
+import piatto18 from '../assets/images/photogallery/piatto18.jpg';
+import piatto19 from '../assets/images/photogallery/piatto19.jpg';
+import piatto20 from '../assets/images/photogallery/piatto20.jpg';
+import piatto21 from '../assets/images/photogallery/piatto21.jpg';
+import piatto22 from '../assets/images/photogallery/piatto22.jpg';
+import piatto23 from '../assets/images/photogallery/piatto23.jpg';
+import piatto24 from '../assets/images/photogallery/piatto24.jpg';
+import piatto25 from '../assets/images/photogallery/piatto25.jpg';
+import piatto26 from '../assets/images/photogallery/piatto26.jpg';
+import piatto27 from '../assets/images/photogallery/piatto27.jpg';
+import piatto28 from '../assets/images/photogallery/piatto28.jpg';
+import piatto29 from '../assets/images/photogallery/piatto29.jpg';
+import piatto30 from '../assets/images/photogallery/piatto30.jpg';
+
+function Photogallery() {
+  const { t } = useTranslation();
+  const images = [
+    piatto1, piatto2, piatto3, piatto4, piatto5, piatto6, piatto7, piatto8,
+    piatto9, piatto10, piatto11, piatto12, piatto13, piatto14, piatto15, piatto16,
+    piatto17, piatto18, piatto19, piatto20, piatto21, piatto22, piatto23, piatto24,
+    piatto25, piatto26, piatto27, piatto28, piatto29, piatto30
+  ];
+  const galleryRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Verifica larghezza per mostrare/nascondere frecce
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Se è mobile, resetta lo scroll (opzionale)
+  useEffect(() => {
+    if (isMobile && galleryRef.current) {
+      galleryRef.current.scrollLeft = 0;
+    }
+  }, [isMobile]);
+
+  // Scorrimento a sinistra/destra con le frecce
+  const scrollLeft = () => {
+    galleryRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    galleryRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
+  };
+
+  // Click nella gallery: se clicco nella parte sinistra scorre left, altrimenti right
+  const handleGalleryClick = (e) => {
+    if (!galleryRef.current) return;
+    const rect = galleryRef.current.getBoundingClientRect();
+    const clickX = e.clientX - rect.left; // Posizione X del click rispetto alla gallery
+    const mid = rect.width / 2;          // Punto centrale
+
+    if (clickX < mid) {
+      scrollLeft();
+    } else {
+      scrollRight();
+    }
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{t('seo.photogallery_title')}</title>
+        <meta name="description" content={t('seo.photogallery_description')} />
+      </Helmet>
+      <div className="photogallery-container">
+        <div className="additional-layer"></div>
+        <div className="additional-layer2"></div>
+        <div className="additional-layer3"></div>
+
+        <div className="gallery-wrapper">
+          {/* Frecce visibili solo su desktop */}
+          {!isMobile && (
+            <button className="scroll-button left" onClick={scrollLeft}>
+              &#8249;
+            </button>
+          )}
+
+          <div
+            className="gallery-grid"
+            ref={galleryRef}
+            onClick={handleGalleryClick}  // Usa il click per decidere scroll left/right
+          >
+            {images.map((image, index) => (
+              <div className="gallery-item" key={index}>
+                <img src={image} alt={`Foto ${index + 1}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          {!isMobile && (
+            <button className="scroll-button right" onClick={scrollRight}>
+              &#8250;
+            </button>
+          )}
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Photogallery;
+
+
+
+=== Inizio di src/components/LanguageSwitcher.css ===
+.notranslate {
+    translate: none;
+    unicode-bidi: plaintext;
+  }
+  
+
+
+
+=== Inizio di src/components/PrivacyPolicy.css ===
+.privacy-policy {
+    background-color: rgb(44, 44, 44);
+    font-size: 12px;
+    width: 100%;
+    padding-top: 142px;
+    padding-bottom: 242px;
+}
+
+.privacy-policy a {
+    margin-left: 4px; /* Aggiunge spazio a sinistra del link */
+    color: #0066cc; /* Cambia il colore del link (puoi scegliere un colore più visibile) */
+    text-decoration: underline; /* Facoltativo: aggiunge una sottolineatura */
+}
+
+.privacy-policy a:hover {
+    color: #008049; /* Cambia colore del link al passaggio del mouse */
+  }
+
+
+
+=== Inizio di src/components/HomePage.js ===
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import logoImage from '../assets/images/scritta.png';
+import './HomePage.css';
+
+function HomePage() {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <Helmet>
+        <title>{t('seo.title')}</title>
+        <meta name="description" content={t('seo.description')} />
+      </Helmet>
+      <div className="home-page">
+        <img src={logoImage} alt="Scritta" className="homepage-logo" />
+        <p className="homepage-subtitle">FIRENZE</p>
+        <div className="home-buttons">
+          <Link to="/prenotazione">
+            <button className="btn btn-prenota">{t('prenota')}</button>
+          </Link>
+        </div>
+        <div className="home-schedule">
+          <p>
+            Lungarno Amerigo Vespucci - 34r <br />
+            {t('giorni_schedule_weekend')}: 12.00 - 14.00 | 19.00 - 22.30 <br />
+            {t('giorni_schedule_infraset')}: 19.00 - 22.30<br />
+            📞 +39 345 169 1689 <br /> 📧 osteriacaorlotta@gmail.com
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default HomePage;
+
+
+
+=== Inizio di src/components/CookieBanner.css ===
+/* src/components/CookieBanner.css */
+
+/* Evita che gli stili globali si applichino ai pulsanti all'interno del CookieBanner */
+.cookie-banner button {
+    font-size: 14px;
+    border-radius: 25px !important;
+    cursor: pointer;
+    background: none !important;
+}
+
+.cookie-banner a {
+  color: #002011 !important; /* Colore del link (personalizzabile) */
+  text-decoration: none !important; /* Sottolineatura del link */
+}
+
+.cookie-banner a:hover {
+  color: #002244 !important; /* Colore del link (personalizzabile) */
+}
+
+  
+  /* Stili per hover se necessario */
+.cookie-banner button:hover {
+    background-color: rgba(222, 219, 22, 0.1) !important;
+    border-radius: 25px !important;
+}
+
+.cookie-banner #rcc-decline-button {
+    /* color: rgb(42, 42, 42) !important; */
+    color: rgb(42, 42, 42) !important;
+
+    /* font-weight: bold; */
+}
+
+.cookie-banner #rcc-confirm-button {
+  /* color: rgb(42, 42, 42) !important; */
+  color: rgb(42, 42, 42) !important;
+  /* font-weight: bold; */
+}
+
+
+.CookieConsent {
+    display: flex;
+    /* Centra i contenuti verticalmente */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 80%;
+    left: 50% !important;
+    font-size: 16px;
+    color: rgb(42, 42, 42) !important;
+    font-weight: 600;
+    color: #f5f5f5 !important;
+    transform: translate(-50%, -50%); /* Per centrare perfettamente */
+    background-color: rgba(119, 119, 110, 0.98) !important;
+    border-radius: 20px;
+    padding: 20px; /* Aggiungi un po' di spazio interno */
+    z-index: 9999; /* Assicurati che sia sopra gli altri elementi */
+    width: 90%; /* Per adattarsi a schermi piccoli */
+    max-width: 600px; /* Limita la larghezza massima */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Aggiungi un'ombra per un look migliore */
+    text-align: center;
+    margin-top: -75px !important;
+}
+
+  /* Media query per tablet */
+@media (max-width: 1024px) {
+  .cookie-banner {
+    /* padding: 200px 300px; */
+    max-width: 500px;
+    font-size: 14px;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .cookie-banner {
+    max-width: 400px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    max-width: 100%;
+    font-size: 10px;
+  }
+
+  .CookieConsent{
+    padding: 5px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .CookieConsent {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 20px !important; /* Più spazio interno */
+    box-sizing: border-box; /* Garantisce che padding non faccia sforare la larghezza */
+  }
+
+  .CookieConsent > div {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .CookieConsent button {
+    display: inline-block !important;
+    width: auto !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    margin: 5px !important;
+  }
+}
+
+  
+
+
+
+=== Inizio di src/components/Recensioni.js ===
+import React, { useState, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import './Recensioni.css';
+
+import img1 from '../assets/images/1.jpg';
+import img2 from '../assets/images/2.jpg';
+import img3 from '../assets/images/3.jpg';
+import img4 from '../assets/images/4.jpg';
+import img5 from '../assets/images/5.jpg';
+import img6 from '../assets/images/6.jpg';
+import img7 from '../assets/images/7.jpg';
+import img8 from '../assets/images/8.jpg';
+import img9 from '../assets/images/9.jpg';
+import img10 from '../assets/images/10.jpg';
+import img11 from '../assets/images/11.jpg';
+import img12 from '../assets/images/12.jpg';
+
+function Recensioni() {
+  const { t } = useTranslation();
+  const immagini = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
+  const [indice, setIndice] = useState(0);
+  const imgRef = useRef(null);
+
+  const vaiAvanti = () => {
+    setIndice((prevIndice) => (prevIndice + 1) % immagini.length);
+  };
+
+  const vaiIndietro = () => {
+    setIndice((prevIndice) => (prevIndice - 1 + immagini.length) % immagini.length);
+  };
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = imgRef.current.getBoundingClientRect();
+    const x = ((e.clientX - left) / width - 0.5) * 7.2; // Inclinazione orizzontale
+    const y = ((e.clientY - top) / height - 0.5) * 7.2;  // Inclinazione verticale
+    imgRef.current.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg)`;
+  };
+
+  const handleMouseLeave = () => {
+    imgRef.current.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{t('seo.recensioni_title')}</title>
+        <meta name="description" content={t('seo.recensioni_description')} />
+      </Helmet>
+      <div className="recensioni">
+        <div className="overlay"></div>
+        <div className="carosello">
+          <img
+            ref={imgRef}
+            src={immagini[indice]}
+            alt={`Recensione ${indice + 1}`}
+            className="carosello-immagine"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          />
+          <button onClick={vaiIndietro} className="carosello-bottone precedente">{"<"}</button>
+          <button onClick={vaiAvanti} className="carosello-bottone successiva">{">"}</button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Recensioni;
+
+
+
+=== Inizio di src/components/DoveSiamo.js ===
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import { Cookies } from 'react-cookie-consent';
+
+import './DoveSiamo.css';
+
+function DoveSiamo() {
+  const { t } = useTranslation();
+  const [showMap, setShowMap] = useState(false);
+
+  useEffect(() => {
+    // Controlla se l'utente ha accettato i cookie
+    const consent = Cookies.get("acceptCookies");
+    if (consent === "true") {
+      setShowMap(true); // Mostra la mappa solo se il consenso è stato dato
+    }
+  }, []);
+
+  return (
+    <>
+      <Helmet>
+        <title>{t('seo.dove_siamo_title')}</title>
+        <meta name="description" content={t('seo.dove_siamo_description')} />
+      </Helmet>
+      <div className="dove-siamo">
+        <div className="additional-layer"></div>
+        <div className="additional-layer2"></div>
+        <p className="address-text">
+          📍 Lungarno Amerigo Vespucci, 34r, 50123 Firenze FI, Italia
+        </p>
+        {showMap ? (
+          <iframe
+            title="Mappa"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2883.566816589088!2d11.242021275952308!3d43.77493087111205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a56a787f9c0a5%3A0x5f9148a5b5ae95c1!2sLungarno%20Amerigo%20Vespucci%2C%2034r%2C%2050123%20Firenze%20FI%2C%20Italia!5e0!3m2!1sit!2sit!4v1692389083947!5m2!1sit!2sit"
+            width="100%"
+            height="525"
+            style={{ border: '2px solid #dbcfa1', borderRadius: '24px' }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        ) : (
+          <p>
+            {t('impostazioniPrivacy')}
+            <a href="/privacy-policy" style={{ color: "#007bff", textDecoration: 'underline' }}>
+              {t('privacyLink')}
+            </a>.
+          </p>
+        )}
+      </div>
+    </>
+  );
+}
+
+export default DoveSiamo;
+
+
+
+=== Inizio di src/components/PrenotazionePage.js ===
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import PrenotazioneForm from './PrenotazioneForm';
+import './PrenotazionePage.css';
+
+function PrenotazionePage() {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <Helmet>
+        <title>{t('seo.prenotazione_title')}</title>
+        <meta name="description" content={t('seo.prenotazione_description')} />
+      </Helmet>
+      <div className="prenotazione-page">
+        <div className="form-container">
+          <PrenotazioneForm />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default PrenotazionePage;
+
+
+
+=== Inizio di src/components/Recensioni.css ===
+.recensioni {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(120, 190, 210, 0.2);
+  z-index: 0;
+}
+
+.carosello {
+  position: relative;
+  width: 70%;
+  max-width: 600px;
+  /* overflow: visible; Permette alle frecce di uscire */
+}
+
+.carosello-immagine {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 7px 20px 18px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  overflow: hidden;
+  border-radius: 25px;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.carosello-immagine:hover {
+  transform: scale(1.05);
+}
+
+/* Nuovo stile per i bottoni laterali, ispirato a .scroll-button */
+.carosello-bottone {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-20%);
+  width: 22px;
+  height: 40px;
+  background-color: rgba(114, 114, 112, 0.7);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carosello-bottone.precedente {
+  left: -42px; /* Posizionato come nel file photogallery */
+}
+
+.carosello-bottone.successiva {
+  right: -42px;
+}
+
+.carosello-bottone:hover {
+  background-color: rgba(232, 237, 215, 0.5);
+  transform: scale(1.1);
+}
+
+/* Media Query per schermi medi (fino a 768px di larghezza) */
+@media (max-width: 768px) {
+  .carosello {
+    width: 90%;
+  }
+  
+  .carosello-bottone {
+    font-size: 16px;
+  }
+  
+  .carosello-bottone.precedente {
+    left: -33px;
+  }
+  
+  .carosello-bottone.successiva {
+    right: -33px;
+  }
+}
+
+/* Media Query per schermi molto piccoli (fino a 480px di larghezza) */
+@media (max-width: 480px) {
+  .carosello {
+    width: 95%;
+  }
+  
+  .carosello-bottone {
+    font-size: 14px;
+  }
+  
+  .carosello-bottone.precedente {
+    left: -27px;
+  }
+  
+  .carosello-bottone.successiva {
+    right: -27px;
+  }
+}
+
+
+
+=== Inizio di src/components/LanguageSwitcher.js ===
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import './LanguageSwitcher.css';
+
+function LanguageSwitcher() {
+  const { i18n } = useTranslation();
+
+  const cambiaLingua = (lingua) => {
+    i18n.changeLanguage(lingua);
+  };
+
+  return (
+    <div className="language-switcher">
+      <button className="btn btn-lingua notranslate" onClick={() => cambiaLingua('it')}>IT</button>
+      <button className="btn btn-lingua notranslate" onClick={() => cambiaLingua('en')}>EN</button>
+    </div>
+  );
+}
+
+export default LanguageSwitcher;
+
+
+
+=== Inizio di src/components/MenuPage.js ===
+import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import './MenuPage.css';
+
+import menu1 from '../assets/images/menu1.png';
+import menu2 from '../assets/images/menu2.png';
+import menu3 from '../assets/images/menu3.png';
+import menu4 from '../assets/images/menu4.png';
+
+function MenuPage() {
+  const { t } = useTranslation();
+  const images = [menu1, menu2, menu3, menu4];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const menuItemsRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Imposta il valore iniziale
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile && menuItemsRef.current) {
+      // Imposta la posizione di scorrimento all'inizio
+      menuItemsRef.current.scrollLeft = 0;
+    }
+  }, [isMobile]);
+
+  const goToPrevious = () => {
+    const isFirstImage = currentIndex === 0;
+    const newIndex = isFirstImage ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToNext = () => {
+    const isLastImage = currentIndex === images.length - 1;
+    const newIndex = isLastImage ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{t('seo.menu_title')}</title>
+        <meta name="description" content={t('seo.menu_description')} />
+      </Helmet>
+      <div className="menu-page">
+        <div className="background-layer"></div>
+        <div className="carousel">
+          {/* Frecce visibili solo su desktop (non mobile) */}
+          {!isMobile && (
+            <button className="arrow left-arrow" onClick={goToPrevious}>
+              &#10094;
+            </button>
+          )}
+          
+          <div className="menu-items" ref={menuItemsRef}>
+            {isMobile
+              ? // Modalità mobile: tutte le immagini in sequenza, scroll orizzontale
+                images.map((image, index) => (
+                  <div key={index} className="menu-item">
+                    <img src={image} alt={`Menu ${index + 1}`} />
+                  </div>
+                ))
+              : // Modalità desktop: mostriamo solo l'immagine currentIndex e la successiva
+                [0, 1].map((offset) => {
+                  const index = (currentIndex + offset) % images.length;
+                  return (
+                    <div key={index} className="menu-item">
+                      <img src={images[index]} alt={`Menu ${index + 1}`} />
+                    </div>
+                  );
+                })}
+          </div>
+
+          {/* Frecce visibili solo su desktop (non mobile) */}
+          {!isMobile && (
+            <button className="arrow right-arrow" onClick={goToNext}>
+              &#10095;
+            </button>
+          )}
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default MenuPage;
+
+
+
+=== Inizio di src/components/PrivacyPolicy.js ===
+import React from 'react';
+import './PrivacyPolicy.css';
+
+function PrivacyPolicy() {
+  return (
+    <div className="privacy-policy">
+      <h1>Politica sulla Privacy / Privacy Policy</h1>
+
+      {/* Titolare del trattamento */}
+      <h2>1. Titolare del trattamento / Data Controller</h2>
+      <p>
+        Titolare del trattamento: Osteria Caorlotta, Lungarno Amerigo Vespucci, 34r - 50123 Firenze, email: info@osteria.com. <br />
+        Data Controller: Osteria Caorlotta, Lungarno Amerigo Vespucci, 34r - 50123 Florence, email: info@osteria.com.
+      </p>
+
+      {/* Introduzione */}
+      <h2>2. Introduzione / Introduction</h2>
+      <p>
+        Questo sito utilizza cookie per migliorare l'esperienza utente. Qui trovi i dettagli su come gestiamo i tuoi dati personali. <br />
+        This website uses cookies to enhance user experience. Here you will find details on how we handle your personal data.
+      </p>
+
+      {/* Cookie */}
+      <h2>3. Cookie / Cookies</h2>
+      <p>
+        Utilizziamo cookie essenziali per il funzionamento del sito, nonché cookie di terze parti (Google Maps e, se previsti, quelli utilizzati dal servizio di contatto Formspree) che richiedono il tuo consenso. Prima del consenso, tali servizi non saranno attivi (la mappa non verrà visualizzata e il modulo di prenotazione non potrà essere inviato). <br />
+        We use essential cookies for the website’s functionality, as well as third-party cookies (Google Maps and, if applicable, those used by the Formspree contact service) that require your consent. Before consent is given, these services will remain inactive (the map will not be displayed, and the reservation form cannot be submitted).
+      </p>
+
+      <h3>3.1 Dettaglio dei Cookie Utilizzati / Detailed List of Cookies</h3>
+      <p>
+        Di seguito sono riportati i cookie utilizzati dal sito. Poiché le integrazioni di terze parti (in particolare Google Maps) potrebbero cambiare nel tempo e variare in base allo stato di login dell'utente a Google, la lista potrebbe essere periodicamente aggiornata. <br />
+        Below is a list of the cookies used by the website. Since third-party integrations (especially Google Maps) may change over time and vary depending on the user's Google login state, this list may be periodically updated.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome Cookie / Cookie Name</th>
+            <th>Fornitore / Provider</th>
+            <th>Finalità / Purpose</th>
+            <th>Durata / Duration</th>
+            <th>Tipologia / Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NID (e possibili altri cookie come SID, HSID, SSID, APISID, SAPISID se l’utente è loggato a Google)</td>
+            <td>Google Maps (Google LLC)</td>
+            <td>
+              Utilizzati per memorizzare preferenze utente (es. zoom), garantire la sicurezza, 
+              e se l'utente è loggato con un account Google, associare l’attività di navigazione 
+              all’account stesso. Le tipologie e il numero di cookie possono variare a seconda 
+              dello stato di login dell’utente. Per maggiori dettagli, consulta la 
+              <a href="https://policies.google.com/privacy">Privacy Policy di Google</a> e la 
+              <a href="https://policies.google.com/technologies/cookies">Cookie Policy di Google</a>.<br />
+              Used to store user preferences (e.g., zoom), ensure security, and if the user is logged in 
+              to a Google account, associate browsing activity with that account. The types and number 
+              of cookies may vary depending on the user’s login state. For more details, see
+              <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a> and 
+              <a href="https://policies.google.com/technologies/cookies">Google’s Cookie Policy</a>.
+            </td>
+            <td>Da alcuni mesi a oltre un anno, variabile in base alle politiche di Google. <br /> From a few months to over a year, variable according to Google’s policies.</td>
+            <td>Cookie di terze parti / tecnico-funzionale <br /> Third-party / technical-functional cookie</td>
+          </tr>
+          <tr>
+            <td>Cookie di sessione del form / Form session cookie</td>
+            <td>Formspree (Formspree Inc.)</td>
+            <td>
+              Necessario per la funzionalità del modulo di contatto/prenotazione, prevenzione dello spam 
+              e corretto inoltro dei dati. <br />
+              Necessary for the functionality of the contact/reservation form, spam prevention, and correct data submission.
+            </td>
+            <td>Sessione browser / Browser session</td>
+            <td>Cookie essenziale / Essential cookie</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Nota: I nomi, la durata e la tipologia dei cookie di terze parti (come Google Maps) possono variare nel tempo. 
+        È possibile verificare i cookie effettivi tramite le impostazioni del browser o strumenti di sviluppo. 
+        In caso di aggiornamenti, questa tabella sarà modificata di conseguenza. <br />
+        Note: The names, duration, and types of third-party cookies (such as those from Google Maps) may change over time. 
+        You can check the actual cookies via your browser settings or developer tools. If there are updates, this table will be amended accordingly.
+      </p>
+
+
+      <h3>3.2 Revoca o Modifica del Consenso / Withdrawing or Changing Consent</h3>
+      <p>
+        In qualsiasi momento, l'utente può revocare o modificare il proprio consenso all'uso dei cookie non essenziali. <br />
+        At any time, users can withdraw or modify their consent to the use of non-essential cookies.
+      </p>
+      <ul>
+        <li>
+          <strong>Pannello Preferenze Cookie:</strong> Se disponibile, puoi utilizzare un link o un pulsante sul sito (ad es. nel footer) per riaprire il banner dei cookie e modificare le tue scelte. <br />
+          <strong>Cookie Preferences Panel:</strong> If available, you may use a link or a button on the site (e.g., in the footer) to reopen the cookie banner and change your choices.
+        </li>
+        <li>
+          <strong>Impostazioni del Browser:</strong> È possibile eliminare o bloccare i cookie tramite le impostazioni del browser. Consultare la sezione "Aiuto" del proprio browser per maggiori informazioni. <br />
+          <strong>Browser Settings:</strong> You can delete or block cookies through your browser settings. Refer to your browser’s “Help” section for more information.
+        </li>
+      </ul>
+      <p>
+        Dopo la revoca del consenso, i servizi non essenziali (come Google Maps) non saranno più disponibili finché non verrà nuovamente fornito il consenso. <br />
+        After withdrawing consent, non-essential services (such as Google Maps) will no longer be available until consent is provided again.
+      </p>
+
+      {/* Google Maps */}
+      <h2>4. Google Maps</h2>
+      <p>
+        Questo sito utilizza Google Maps per mostrare la posizione del ristorante. Google potrebbe raccogliere dati come l'indirizzo IP e installare cookie di terze parti. La mappa viene mostrata solo dopo l'accettazione dei cookie non essenziali da parte dell'utente. In caso di rifiuto, la mappa non verrà visualizzata. <br />
+        This website uses Google Maps to show the restaurant’s location. Google may collect data such as your IP address and set third-party cookies. The map is displayed only after the user accepts non-essential cookies. If you refuse, the map will not be displayed.
+      </p>
+
+      {/* Finalità del trattamento */}
+      <h2>5. Finalità del trattamento / Purpose of Data Processing</h2>
+      <p>
+        I dati personali raccolti vengono utilizzati per gestire prenotazioni, rispondere a richieste di contatto e mostrare la posizione tramite Google Maps. <br />
+        Personal data collected is used to manage reservations, respond to contact requests, and display the location via Google Maps.
+      </p>
+
+      {/* Base giuridica del trattamento */}
+      <h2>6. Base giuridica del trattamento / Legal Basis for Data Processing</h2>
+      <p>
+        La base giuridica per il trattamento dei dati personali è: <br />
+        - Il consenso dell’utente per l’uso di cookie non essenziali (es. Google Maps) <br />
+        - L’esecuzione di un contratto per le prenotazioni (dati forniti nel modulo di contatto/prenotazione) <br />
+        - L’interesse legittimo del Titolare per il funzionamento del sito (cookie essenziali)
+      </p>
+      <p>
+        The legal basis for processing personal data is: <br />
+        - User consent for non-essential cookies (e.g., Google Maps) <br />
+        - Contract execution for reservations (data provided in the contact/reservation form) <br />
+        - The Controller’s legitimate interest for website functionality (essential cookies)
+      </p>
+
+      {/* Conservazione dei dati */}
+      <h2>7. Conservazione dei dati / Data Retention</h2>
+      <p>
+        I dati personali saranno conservati per il tempo strettamente necessario a fornire il servizio richiesto. I dati relativi alle prenotazioni saranno eliminati entro 30 giorni dal completamento del servizio. <br />
+        Personal data will be retained for the time strictly necessary to provide the requested service. Reservation data will be deleted within 30 days after service completion.
+      </p>
+
+      {/* Condivisione dei dati */}
+      <h2>8. Condivisione dei dati / Data Sharing</h2>
+      <p>
+        I dati personali potrebbero essere condivisi con: <br />
+        - Google LLC, per l'uso di Google Maps, solo previo consenso dell’utente. <br />
+        - Formspree Inc., per la gestione del modulo di contatto/prenotazione.
+      </p>
+      <p>
+        Personal data may be shared with: <br />
+        - Google LLC for Google Maps usage, subject to user consent. <br />
+        - Formspree Inc. for managing the contact/reservation form.
+      </p>
+
+      {/* Diritti degli utenti */}
+      <h2>9. Diritti degli utenti / User Rights</h2>
+      <p>
+        Gli utenti hanno il diritto di accedere, correggere, eliminare i propri dati, opporsi al trattamento e richiedere la limitazione del trattamento. Possono anche presentare un reclamo al Garante per la Protezione dei Dati Personali. <br />
+        Users have the right to access, correct, delete their data, object to processing, and request the restriction of processing. They can also file a complaint with the Italian Data Protection Authority.
+      </p>
+
+      {/* Modifiche alla Privacy Policy */}
+      <h2>10. Modifiche alla Privacy Policy / Changes to the Privacy Policy</h2>
+      <p>
+        Ci riserviamo il diritto di modificare questa Privacy Policy in qualsiasi momento. Gli utenti saranno informati tramite il sito web. <br />
+        We reserve the right to modify this Privacy Policy at any time. Users will be informed through the website.
+      </p>
+
+      {/* Riferimenti Normativi */}
+      <h2>11. Riferimenti Normativi / Regulatory References</h2>
+      <p>
+        Questa Privacy Policy è redatta nel rispetto delle normative vigenti, tra cui: <br />
+        - Regolamento (UE) 2016/679 (GDPR) <br />
+        - Codice in materia di protezione dei dati personali (D.lgs. 196/2003), come modificato dal D.lgs. 101/2018 <br />
+        - Linee guida del Garante per la Protezione dei Dati Personali in materia di cookie e altri strumenti di tracciamento
+      </p>
+      <p>
+        This Privacy Policy is drafted in accordance with the current legislation, including: <br />
+        - Regulation (EU) 2016/679 (GDPR) <br />
+        - Italian Data Protection Code (Legislative Decree no. 196/2003), as amended by Legislative Decree no. 101/2018 <br />
+        - Guidelines of the Italian Data Protection Authority regarding cookies and other tracking tools
+      </p>
+
+      {/* Contatti */}
+      <h2>12. Contatti / Contact Us</h2>
+      <p>
+        Per domande, contattaci a info@osteria.com. <br />
+        For any questions, contact us at info@osteria.com.
+      </p>
+    </div>
+  );
+}
+
+export default PrivacyPolicy;
+
+
+
+=== Inizio di src/components/HomePage.css ===
+
+.home-page {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .homepage-logo {
+    max-width: 55%;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .homepage-subtitle {
+    color: rgb(0, 0, 0);
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    /* font-family: 'montserrat'; */
+    /* font-family: "Segoe UI", Tahoma, Geneva, sans-serif; */
+    /* font-family: 'Roboto', Arial, sans-serif; */
+  }
+
+  .home-schedule {
+    margin-top: 28px;
+    line-height: 1.2;
+    margin-bottom: -142px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    /* font-family: "Trebuchet MS", Arial, sans-serif; */
+    /* font-family: 'montserrat'; */
+    font-size: 16px;
+    font-weight: 600;
+    /* color: rgb(0, 0, 0); */
+    color: #ffffff;
+    background-color: #8f8b7c;
+    opacity: 0.9;
+    border-radius: 50px;
+    transition: opacity 0.3s ease-in-out; 
+  }
+
+  .home-schedule:hover {
+    opacity: 1;
+}
+  
+  
+  /* .home-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .btn-prenota {
+    flex: 1 1 200px;
+    white-space: nowrap;
+  } */
+
+  .home-buttons {
+    display: flex;
+    flex-direction: column; /* Disposizione verticale */
+    align-items: center; /* Centra orizzontalmente */
+    justify-content: center; /* Centra verticalmente */
+    gap: 20px;
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+  }
+  
+  .btn-prenota {
+    flex: none; /* Rimuove la flessibilità */
+    width: 200px; /* Imposta una larghezza fissa */
+    text-align: center; /* Centra il testo */
+  }
+  
+
+  /* .homepage-bottom-logo {
+    position: fixed;
+    bottom: 442px;
+    left: 1142px;
+    width: 124px; /* Regola la dimensione secondo le tue esigenze */
+    /* height: auto;
+    z-index: 9999;
+  } */
+  
+  /* Responsività */
+  @media (max-width: 768px) {
+    .btn-prenota {
+      flex: 1 1 150px;
+      font-size: 1rem;
+    }
+
+    .homepage-logo {
+      max-width: 60%; /* Riduci leggermente, ma mantieni visibile */
+      min-width: 250px; /* Imposta una larghezza minima per non ridurlo troppo */
+    }
+
+    .homepage-subtitle {
+      margin-top: 2px;
+      font-size: 10px;
+    }
+    
+    /* .homepage-bottom-logo {
+      width: 42px;
+      bottom: 42px;
+      left: 1px;
+    } */
+  }
+  
+  @media (max-width: 480px) {
+    .btn-prenota {
+      flex: 1 1 100%;
+      font-size: 0.9rem;
+    }
+
+    .homepage-subtitle {
+      margin-top: 2px;
+      font-size: 10px;
+    }
+    
+    /* .homepage-bottom-logo {
+      width: 24px;
+      bottom: 1px;
+      left: 1px;
+    } */
+  }
+  
+
+
+
+=== Inizio di src/components/PrenotazioneForm.js ===
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+function PrenotazioneForm() {
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    nome: '',
+    cognome: '',
+    telefono: '',
+    email: '',
+    coperti: '',
+    data: '',
+    orario: '',
+    note: '',
+  });
+
+  // Definisci orariPranzo e orariCena come costanti
+  const orariPranzo = ['12:30', '12:45', '13:00', '13:15', '13:30', '13:45'];
+  const orariCena = [
+    '19:00', '19:15', '19:30', '19:45', '20:00',
+    '20:15', '20:30', '20:45', '21:00', '21:15', '21:30', '21:45'
+  ];
+
+  // Funzione per gestire i giorni di chiusura
+  const giorniChiusura = (date) => {
+    const giorno = date.getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
+    return giorno !== 1; // Lunedì chiuso tutto il giorno
+  };
+
+  // Funzione per filtrare orari passati nel giorno corrente
+  const orariFiltratiPerOggi = (orari) => {
+    const oggi = new Date();
+    const oggiString = oggi.toLocaleDateString();
+    
+    const dataSelezionata = formData.data instanceof Date ? formData.data : new Date(formData.data);
+    const dataSelezionataString = dataSelezionata.toLocaleDateString();
+
+    if (oggiString === dataSelezionataString) {
+      const oraCorrente = oggi.getHours() * 60 + oggi.getMinutes(); // Ora attuale in minuti
+      // Filtra gli orari che sono già passati per il giorno corrente
+      return orari.filter(orario => {
+        const [ore, minuti] = orario.split(':').map(Number);
+        const orarioMinuti = ore * 60 + minuti;
+        return orarioMinuti > oraCorrente;
+      });
+    }
+
+    return orari; // Se non è oggi, restituisci tutti gli orari
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (parseInt(formData.coperti, 10) < 1) {
+      alert('Il numero di coperti deve essere almeno 1.');
+      return;
+    }
+    if (parseInt(formData.coperti, 10) > 4) {
+      alert(t('contattaRistorante'));
+      return;
+    }
+    console.log('Dati del form:', formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <input
+          type="text"
+          name="nome"
+          placeholder={t('nome')}
+          value={formData.nome}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="cognome"
+          placeholder={t('cognome')}
+          value={formData.cognome}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="tel"
+          name="telefono"
+          placeholder={t('telefono')}
+          value={formData.telefono}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          placeholder={t('email')}
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="number"
+          name="coperti"
+          placeholder={t('coperti')}
+          value={formData.coperti}
+          onChange={handleChange}
+          required
+          min="1" 
+        />
+      </div>
+      <div>
+        <DatePicker
+          selected={formData.data}
+          onChange={(date) => setFormData({ ...formData, data: date })}
+          filterDate={giorniChiusura}
+          minDate={new Date()}
+          placeholderText={t('selezionaData')}
+          dateFormat="dd/MM/yyyy"
+          required
+        />
+      </div>
+      <div>
+        <select
+          name="orario"
+          value={formData.orario}
+          onChange={handleChange}
+          required
+        >
+          <option value="">{t('selezionaOrario')}</option>
+
+          {!formData.data ? (
+            <option disabled>{t('scegliPrimaLaData')}</option>
+          ) : (
+            <>
+              {/* Mostra pranzo solo nei giorni in cui è aperto */}
+              {formData.data && ![2, 3, 4].includes(new Date(formData.data).getDay()) && (
+                <optgroup label={t('pranzo')}>
+                  {orariFiltratiPerOggi(orariPranzo).map((time) => (
+                    <option key={time} value={time}>{time}</option>
+                  ))}
+                </optgroup>
+              )}
+
+              <option disabled>──────────</option>
+
+              {/* Mostra sempre gli orari di cena */}
+              <optgroup label={t('cena')}>
+                {orariFiltratiPerOggi(orariCena).map((time) => (
+                  <option key={time} value={time}>{time}</option>
+                ))}
+              </optgroup>
+            </>
+          )}
+        </select>
+      </div>
+      <div style={{ flex: '1 1 100%' }}>
+        <textarea
+          name="note"
+          placeholder={t('note')}
+          value={formData.note}
+          onChange={handleChange}
+        />
+      </div>
+      <div style={{ flex: '1 1 100%' }}>
+        <button type="submit" className="btn btn-submit">{t('prenota')}</button>
+      </div>
+    </form>
+  );
+}
+
+export default PrenotazioneForm;
+
+
+
+=== Inizio di src/components/DoveSiamo.css ===
+.additional-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+    background: rgba(252, 255, 255, 0.1); /* Esempio di colore trasparente */
+    opacity: 1;
+    pointer-events: none; /* Per evitare interferenze con la galleria */
+  }
+  
+  .additional-layer2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+    background: rgba(255, 255, 254, 0.1); /* Esempio di colore trasparente */
+    opacity: 1;
+    pointer-events: none; /* Per evitare interferenze con la galleria */
+  }
+
+  .address-text {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    /* margin-top: 180px; */
+  }
+
+  .dove-siamo {
+    z-index: 1;
+    max-width: 820px;
+    font-size: 28px;
+    font-family: 'Lora', serif;
+    width: 100%; /* Prende tutta la larghezza disponibile */
+    margin: 0 auto; /* Centra il contenitore */
+  }
+
+  .dove-siamo iframe {
+    position: relative;
+    height: 400px;
+    margin-top: 0px;
+    z-index: 2; /* Mappa sopra gli altri layer */
+    opacity: 1 !important; /* Rimuove qualsiasi opacità ereditata */
+    pointer-events: auto; /* Permette l'interazione con la mappa */
+    background: transparent; /* Assicura che lo sfondo della mappa resti invariato */
+  }
+  
+
+
+
+=== Inizio di src/components/Navbar.js ===
+// src/components/Navbar.js
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import logo from '../assets/images/logo.png';
+import { useTranslation } from 'react-i18next';
+
+function Navbar() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+    setIsVisible(true);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsVisible(false);
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      if (event.clientY < 240) {
+        setIsVisible(true);
+      } else if (!isMenuOpen) {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isMenuOpen]);
+
+  return (
+    <nav className={`navbar ${isVisible ? 'visible' : ''}`}>
+      <div className="navbar-content">
+        <div className="navbar-logo">
+          <Link to="/">
+            <img src={logo} alt="Il Tuo Logo" />
+          </Link>
+        </div>
+        <button
+          className={`menu-button ${isMenuOpen ? 'open' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="navbar-links"
+        >
+          <span className="menu-icon"></span>
+        </button>
+        <ul id="navbar-links" className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
+          <li>
+            <Link to="/" onClick={closeMenu}>Home</Link>
+          </li>
+          <li>
+            <Link to="/prenotazione" onClick={closeMenu}>{t('navbar.prenotazione')}</Link>
+          </li>
+          <li>
+            <Link to="/chi-siamo" onClick={closeMenu}>{t('navbar.chi_siamo')}</Link>
+          </li>
+          <li>
+            <Link to="/menu" onClick={closeMenu}>{t('navbar.menu')}</Link>
+          </li>
+          <li>
+            <Link to="/dove-siamo" onClick={closeMenu}>{t('navbar.dove_siamo')}</Link>
+          </li>
+          <li>
+            <Link to="/recensioni" onClick={closeMenu}>{t('navbar.recensioni')}</Link>
+          </li>
+          <li>
+            <Link to="/photogallery" onClick={closeMenu}>{t('navbar.photo_gallery')}</Link>
+          </li>
+        </ul>
+      </div>
+      {isMenuOpen && <div className="overlay" onClick={closeMenu}></div>}
+    </nav>
+  );
+}
+
+export default Navbar;
+
+
+
+=== Inizio di src/components/Photogallery.css ===
+.photogallery-container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 0; /* Sfondo sotto */
+  background-image: url('../assets/images/sala1.png'); /* Sfondo originale */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* opacity: 0.42; */
+}
+
+/* Livello opaco sopra lo sfondo originale */
+.photogallery-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/marmo.jpg'); 
+  background-size: cover; /* Proporzioni identiche allo sfondo originale */
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7; /* Regola l'opacità per trasparenza */
+  z-index: 0; /* Rimane sotto i contenuti */
+}
+
+.photogallery-container .additional-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+  background: rgba(252, 255, 255, 0.1); /* Esempio di colore trasparente */
+  opacity: 1;
+  pointer-events: none; /* Per evitare interferenze con la galleria */
+}
+
+.photogallery-container .additional-layer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Deve stare sopra lo sfondo opaco ma sotto la galleria */
+  background: rgba(255, 255, 254, 0.1); /* Esempio di colore trasparente */
+  opacity: 1;
+  pointer-events: none; /* Per evitare interferenze con la galleria */
+}
+
+.gallery-wrapper {
+  position: absolute;
+  z-index: 1; /* Contenuto sopra i livelli di sfondo */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 33px;
+}
+
+.gallery-grid {
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  margin: 0 50px;
+  cursor: grab;
+}
+
+.gallery-grid:active {
+  cursor: grabbing;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 480px;
+  height: 505px;
+  margin: 0 5px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  opacity: 0.95;
+
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 40px;
+  transform: translateY(-20%);
+  background-color: rgba(114, 114, 112, 0.7);
+  /* background-color: rgba(201, 201, 145, 0.5); */
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.scroll-button.left {
+  left: 18px;
+}
+
+.scroll-button.right {
+  right: 18px;
+}
+
+.scroll-button:hover {
+  background-color: rgba(232, 237, 215, 0.5);
+  /* background-color: rgba(114, 114, 112, 0.7); */
+  transform: scale(1.1);
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 7px;
+  /* opacity: 0.2; */
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background-color: rgba(232, 237, 215, 0.5);
+  /* border: 1px solid rgb(0, 0, 0); */
+  /* opacity: 0.2; */
+  border-radius: 2px;
+}
+
+.gallery-grid:hover::-webkit-scrollbar-thumb {
+  /* opacity: 0.2; */
+  background-color: rgba(232, 237, 215, 0.1);
+}
+
+/* Media Query per dispositivi con larghezza massima di 768px */
+@media (max-width: 768px) {
+  .scroll-button {
+    display: none; /* Nasconde i pulsanti di scroll su mobile */
+  }
+
+  .gallery-grid {
+    margin: 0; /* Rimuove margini inutili */
+    scroll-snap-type: x mandatory;
+  }
+
+  .gallery-item {
+    flex: 0 0 auto; /* Ogni immagine occupa il 100% dello spazio visibile */
+    width: auto;
+    height: auto;
+    scroll-snap-align: start; /* Assicura l'allineamento all'inizio */
+    margin: 0; /* Rimuove margini che possono spostare le immagini */
+    cursor: auto;
+  }
+
+  .gallery-item img {
+    width: 70vh;
+    height: 70vh; /* Copre l'altezza completa della viewport */
+    object-fit: cover;
+    display: block; /* Elimina comportamenti inline */
+  }
+}
+
+/* Media Query per dispositivi con larghezza massima di 480px */
+@media (max-width: 480px) {
+  .gallery-item img {
+    height: 70vh; /* Assicura che l'immagine copra l'intera altezza dello schermo */
+    width: 70vh;
+    /* padding-left: 5px; */
+    /* padding-right: 5px;; */
+  }
+
+}
+
+
+
+=== Inizio di src/components/Footer.css ===
+.footer {
+  background-color: #8f8b7c;
+  position: fixed;
+  bottom: 0; 
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  opacity: 0.8;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0px 8px; 
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;     
+  justify-content: space-between; 
+  max-width: 1200px;   
+  margin: 0 auto;   
+  padding: 0 20px;
+  gap: 10px;   
+}
+
+.footer-left {
+  flex: 0 0 auto;        
+  text-align: left;
+}
+
+.footer-left p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #f5f5f5;
+}
+
+.footer-center {
+  flex: 1;
+  padding-left: 90px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;    
+  gap: 10px;               
+}
+
+.footer-center p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
+.footer-right {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.footer-right p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #f5f5f5;
+}
+
+/* Social icons */
+.social-links {
+  display: inline-flex;
+  gap: 15px;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #76bbff;
+}
+
+/* Media query per mobile: il footer diventa parte del flusso della pagina */
+@media (max-width: 768px) {
+  .footer {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 8px;
+    /* box-shadow: none; opzionale: rimuove l'ombra */
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex-direction: column;
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .footer-center {
+    padding-left: 0;
+  }
+}
+
+
+
+=== Inizio di src/components/CookieBanner.js ===
+// src/components/CookieBanner.js
+import React from 'react';
+import CookieConsent, { Cookies } from 'react-cookie-consent';
+import { useTranslation } from 'react-i18next';
+import './CookieBanner.css';
+
+function CookieBanner() {
+  const { t } = useTranslation();
+
+  const handleAccept = () => {
+    Cookies.set("acceptCookies", "true", { expires: 150 });
+    window.location.reload(); // Ricarica la pagina per attivare Google Maps
+  };
+
+  const handleReject = () => {
+    Cookies.remove("acceptCookies");
+    console.log("Cookie non essenziali rifiutati");
+  };
+
+  return (
+    <div className="cookie-banner">
+      <CookieConsent
+        location="bottom"
+        buttonText={t('accettaCookie')}
+        declineButtonText={t('rifiutaCookie')}
+        enableDeclineButton
+        onAccept={handleAccept}
+        onDecline={handleReject}
+        cookieName="acceptCookies"
+        expires={150}
+      >
+        {t('messaggioCookie')}{" "}
+        <a href="/privacy-policy" style={{ color: "#d0d0c9", textDecoration: 'underline' }}>
+          {t('leggiDiPiu')}
+        </a>
+      </CookieConsent>
+    </div>
+  );
+}
+
+export default CookieBanner;
+
+
+
+=== Inizio di src/components/Navbar.css ===
+/* Navbar.css */
+
+/* Navbar sovrapposta, posizionata in modo fisso */
+.navbar {
+  position: fixed;
+  top: -70px; /* Nasconde la navbar lasciando visibile 10px (80px - 70px) */
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px; /* Altezza aumentata a 80px */
+  z-index: 1000;
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Navbar visibile */
+.navbar.visible {
+  transform: translateY(70px); /* Sposta la navbar verso il basso di 70px, rendendo visibili 10px */
+}
+
+/* Overlay dell'immagine di sfondo con effetto semi-trasparente */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/marmo.jpg'); /* Percorso corretto dell'immagine */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Mantiene l'opacità originale */
+  z-index: -1; /* Metti l'immagine dietro al contenuto della navbar */
+}
+
+/* Contenitore della navbar */
+.navbar-content {
+  display: flex;
+  align-items: center; /* Centra verticalmente gli elementi */
+  justify-content: center;
+  padding: 0px 0px 0px 172px; /* Aumenta il padding a sinistra e destra */
+  height: 100%; /* Occupare tutta l'altezza della navbar */
+  position: relative;
+}
+
+/* Logo della navbar */
+.navbar-logo {
+  position: absolute;
+  left: 7px;
+  display: flex;
+  align-items: center; /* Centra verticalmente il logo */
+  color: white;
+  flex-shrink: 0; /* Evita che il logo si riduca */
+  /* margin-right: 5rem; Spazio tra logo e link */
+}
+
+/* Stili specifici per l'immagine del logo */
+.navbar-logo img {
+  height: 7rem; /* Altezza predefinita per desktop */
+  width: auto;  /* Mantiene le proporzioni originali */
+  transition: height 0.3s ease-in-out;
+}
+
+/* Media Query per Tablet */
+@media (max-width: 1024px) {
+  .navbar-logo img {
+    height: 70px; /* Altezza ridotta su tablet */
+  }
+}
+
+/* Media Query per Dispositivi Mobili */
+@media (max-width: 768px) {
+  .navbar-logo img {
+    height: 60px; /* Altezza ulteriormente ridotta su mobile */
+  }
+}
+
+/* Link di navigazione */
+.navbar-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra i link */
+  align-items: center;
+  /* margin-left: 154px; */
+  /* margin-right: 7%; */
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  overflow: hidden;
+  max-height: none;
+  opacity: 1;
+}
+
+.navbar-links.open {
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  background-color: rgba(88, 88, 88, 0.9);
+  position: absolute;
+  /* bottom: 1000px; */
+  /* position: fixed; */
+  /* top: 100%; */
+  /* left: 0;
+  right: 0; */
+  /* height: 100%; */
+  /* padding: 124px 0; */
+  /* border-radius: 0 0 8px 8px; */
+  /* max-height: 500px; */
+  /* overflow-y: auto; */
+  /* opacity: 1; */
+  /* flex-direction: column; */
+ }
+
+.navbar-links li {
+  margin-bottom: 12px; /* Aumenta lo spazio tra le voci */
+  text-align: center;
+  /* width: 100%; */
+}
+
+.navbar-links li a {
+  display: block;
+  position: relative; /* Per usare il pseudo-elemento ::after */
+  text-align: center;
+  text-decoration: none;
+  color:  #FFFFFF;
+  padding: 42px 42px 0px 38px; 
+  font-size: 19px;
+  /* font-size: 21px; */
+  /* font-weight: 501; */
+  /* font-weight: bold; */
+  /* color: #FFFFFF; */
+}
+
+.navbar-links li a::after {
+  content: '';
+  position: absolute;
+  left: 20%;
+  bottom: 0; /* Posiziona la linea esattamente sotto il link */
+  width: 0; /* La linea parte con larghezza zero */
+  height: 1px; /* Altezza della linea */
+  background-color: #d0d0c9; /* Colore della linea */
+  transition: width 0.3s ease-in-out; /* Transizione fluida */
+}
+
+.navbar-links li a:hover::after {
+  width: 60%; /* Espandi la linea su tutta la lunghezza del link */
+}
+
+
+/* Bottone menu - visibile solo su dispositivi mobili */
+.menu-button {
+  display: none; /* Nascondi il bottone su desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px; /* Aumenta il padding da 10px a 12px */
+  flex-shrink: 0;
+  display: flex;
+  align-items: center; /* Centra verticalmente gli elementi all'interno del bottone */
+}
+
+/* Icona del menu */
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  display: block;
+  /* position: relative; */
+  /* right: 40px; */
+  /* width: 30px; Aumenta la larghezza da 25px a 30px */
+  width: 21px; /* Aumenta la larghezza da 25px a 30px */
+  height: 4px; /* Aumenta l'altezza da 3px a 4px */
+  background-color: #d0d0c9;
+  margin: 3px 0; /* Aumenta il margin da 5px a 6px */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.menu-button.open .menu-icon {
+  background-color: transparent;
+}
+
+.menu-button.open .menu-icon::before {
+  transform: rotate(135deg) translate(5px, 5px);
+  /* transform: rotate(90deg) translate(5px, 5px); carino anche */
+
+}
+
+.menu-button.open .menu-icon::after {
+  transform: rotate(-135deg) translate(5px, -5px);
+}
+
+.menu-icon::before {
+  content: '';
+  position: relative;
+  top: -10px; /* Aumenta lo spostamento verticale da -8px a -10px */
+  /* margin: 10px; */
+}
+
+.menu-icon::after {
+  content: '';
+  position: relative;
+  top: -4px; /* Aumenta lo spostamento verticale da -3px a -4px */
+  /* margin: 10px; */
+}
+
+/* .navbar-links {
+  gap: 2px;
+} */
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  /* Mostra il bottone menu */
+  .menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-right: 42px;
+  }
+
+  /* Nasconde i link di default */
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(40, 44, 52, 0.95);
+    position: absolute;
+    top: 100%; /* Posiziona sotto la navbar */
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px;
+    gap: 10px;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  /* Mostra i link quando il menu è aperto */
+  .navbar-links.open {
+    display: flex;
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  /* Allinea logo e bottone menu */
+  .navbar-content {
+    justify-content: right;
+    padding: 0 20px; /* Riduci il padding su mobile per più spazio */
+  }
+
+  /* Logo con margine destro per evitare sovrapposizioni */
+  .navbar-logo {
+    margin-right: 20px;
+  }
+
+  /* Aggiusta il padding dei link nel menu mobile */
+  .navbar-links li a {
+    padding: 12px 12px; /* Aumenta il padding verticale */
+    width: 100%; /* Occupano tutta la larghezza disponibile */
+    text-align: center; /* Centra il testo */
+    font-size: 20px; /* Aumenta la dimensione del font */
+  }
+}
+
+@media (min-width: 1025px) {
+  .menu-button {
+    display: none !important;
+  }
+  .navbar-links {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    top: 0 !important; /* La navbar sarà sempre visibile */
+    transform: translateY(0) !important;
+  }
+}
+
+/* @media (min-width: 1371px) {
+  .navbar-links {
+    display: flex !important;
+    max-height: none;
+    opacity: 1;
+  }
+
+  .menu-button {
+    display: none;
+  }
+} */
+
+/* Overlay quando il menu è aperto */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-trasparente */
+  z-index: 999; /* Inferiore alla navbar */
+  transition: opacity 0.3s ease;
+}
+
+
+
+=== Inizio di src/components/MenuPage.css ===
+.menu-page {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/marmo.jpg');
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.menu-item {
+  position: relative;
+  width: 442px;
+  height: 525px;
+  margin: 0;
+  overflow: hidden;
+  cursor: cell;
+}
+
+.menu-item img {
+  width: 482px;
+  height: 563px;
+  max-width: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-item:hover img {
+  transform: scale(1.12);
+}
+
+.menu-item:hover {
+  z-index: 2;
+}
+
+.arrow {
+  background-color: rgba(184, 183, 154, 0.5);
+  border: none;
+  font-size: 14px;
+  color: #ffffff;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-20%);
+  background-color: rgba(149, 149, 135, 0.5);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 42px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(232, 237, 215, 0.5);
+  transform: scale(1.1);
+}
+
+.left-arrow {
+  left: -42px;
+}
+
+.right-arrow {
+  right: -42px;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    display: block; /* Sovrascrive display: flex */
+    opacity: 1;
+  }
+
+  .menu-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .menu-items {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    width: 100%;
+    margin: 0; /* Rimuove margini inutili */
+    padding: 0;
+    justify-content: flex-start; /* Sovrascrive justify-content: center */
+    align-items: flex-start; /* Sovrascrive align-items: center */
+  }
+
+  .menu-item {
+    flex: 0 0 100%; /* Ogni immagine occupa il 100% dello spazio visibile */
+    width: 100%;
+    height: auto;
+    scroll-snap-align: start; /* Assicura l'allineamento all'inizio */
+    margin: 0; /* Rimuove margini che possono spostare le immagini */
+    cursor: auto;
+    position: static; /* Sovrascrive position: relative */
+    overflow: visible; /* Sovrascrive overflow: hidden */
+  }
+
+  .menu-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Elimina comportamenti inline */
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .menu-item:hover img {
+    transform: none; /* Disabilita lo zoom su mobile */
+  }
+}
+
+
+

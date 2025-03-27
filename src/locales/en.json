@@ -60,5 +60,9 @@
       "testo_4": "Let yourself be guided by the culinary creations of Pietro Benvenuti. Born into a family of restaurateurs and fishermen, he absorbed, from a young age, the gastronomic and fishing traditions of our land. Each day, with care and passion, he selects fresh catch and genuine ingredients to compose exquisite dishes, always honoring the raw materials with dedication.",
       "testo_5": "In a paradisiacal and picturesque setting along the Lungarno, let yourself be pampered by Alika Antoniolli. Rediscover the pleasure of dining, enhanced by attentive service that aims to spoil and delight you with the flavors and aromas of our dishes and our selection of wines. Allow yourself to explore new tastes so we can offer you new emotions...",
       "testo_6": "We wish to express our heartfelt gratitude to you, dear customers — now friends — for placing your trust in us. We draw inspiration from you for each new step forward."
+    },
+    "photogallery": {
+      "imageAlt": "Typical venetian dish of Osteria Caorlotta: dish-number {{index}}: a culinary experience rich in genuine flavors and unicity."
     }
+    
 }
