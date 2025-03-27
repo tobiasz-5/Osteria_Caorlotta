@@ -3,7 +3,7 @@ import './App.css';
 import './i18n';
 import CookieBanner from './components/CookieBanner';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer'; // Importa il Footer
+import Footer from './components/Footer'; 
 import LanguageSwitcher from './components/LanguageSwitcher';
 import HomePage from './components/HomePage';
 import PrenotazionePage from './components/PrenotazionePage';
