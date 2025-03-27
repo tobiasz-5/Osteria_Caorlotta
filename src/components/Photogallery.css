@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   z-index: 0; /* Sfondo sotto */
-  background-image: url('../assets/images/sala1.png'); /* Sfondo originale */
+  background-image: url('../assets/images/sala1.webp'); /* Sfondo originale */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

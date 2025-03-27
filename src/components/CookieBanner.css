@@ -1,5 +1,9 @@
 /* src/components/CookieBanner.css */
 
+.cookie-banner {
+  z-index: 0 !important;
+  position: fixed;
+}
 /* Evita che gli stili globali si applichino ai pulsanti all'interno del CookieBanner */
 .cookie-banner button {
     font-size: 14px;
