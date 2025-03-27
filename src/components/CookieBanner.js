@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from 'react';
+// src/components/CookieBanner.js
+import React from 'react';
 import CookieConsent, { Cookies } from 'react-cookie-consent';
 import { useTranslation } from 'react-i18next';
 import './CookieBanner.css';
 
 function CookieBanner() {
   const { t } = useTranslation();
-  const [showBanner, setShowBanner] = useState(false);
-
-  // Ritarda la visualizzazione per non influenzare il LCP
-  useEffect(() => {
-    const timer = setTimeout(() => setShowBanner(true), 3000); // Ritardo di 2 secondi
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleAccept = () => {
     Cookies.set("acceptCookies", "true", { expires: 150 });
-    // Ricarica posticipata per evitare blocchi immediati (opzionale)
-    setTimeout(() => window.location.reload(), 500);
+    window.location.reload(); // Ricarica la pagina per attivare Google Maps
   };
 
   const handleReject = () => {
@@ -25,28 +18,23 @@ function CookieBanner() {
   };
 
   return (
-    showBanner && (
-      <div className="cookie-banner" aria-hidden={!showBanner}>
-        <CookieConsent
-          location="bottom"
-          buttonText={t('accettaCookie')}
-          declineButtonText={t('rifiutaCookie')}
-          enableDeclineButton
-          onAccept={handleAccept}
-          onDecline={handleReject}
-          cookieName="acceptCookies"
-          expires={150}
-        >
-          {t('messaggioCookie')}{" "}
-          <a
-            href="/privacy-policy"
-            style={{ color: "#d0d0c9", textDecoration: 'underline' }}
-          >
-            {t('leggiDiPiu')}
-          </a>
-        </CookieConsent>
-      </div>
-    )
+    <div className="cookie-banner">
+      <CookieConsent
+        location="bottom"
+        buttonText={t('accettaCookie')}
+        declineButtonText={t('rifiutaCookie')}
+        enableDeclineButton
+        onAccept={handleAccept}
+        onDecline={handleReject}
+        cookieName="acceptCookies"
+        expires={150}
+      >
+        {t('messaggioCookie')}{" "}
+        <a href="/privacy-policy" style={{ color: "#d0d0c9", textDecoration: 'underline' }}>
+          {t('leggiDiPiu')}
+        </a>
+      </CookieConsent>
+    </div>
   );
 }
 
