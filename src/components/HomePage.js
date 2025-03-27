@@ -13,6 +13,31 @@ function HomePage() {
       <Helmet>
         <title>{t('seo.title')}</title>
         <meta name="description" content={t('seo.description')} />
+        
+        {/* Preconnect per Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Preload dei fogli di stile dei font */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        
+        <noscript>
+          {`
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap">
+          `}
+        </noscript>
 
         {/* JSON-LD per il ristorante */}
         <script type="application/ld+json">
@@ -21,8 +46,6 @@ function HomePage() {
               "@context": "https://schema.org",
               "@type": "Restaurant",
               "name": "Osteria Caorlotta",
-              "image": "https://osteria-caorlotta.vercel.app/",
-              "url": "https://osteria-caorlotta.vercel.app/",
               "telephone": "+39 345 169 1689",
               "address": {
                 "@type": "PostalAddress",
@@ -35,7 +58,7 @@ function HomePage() {
               "servesCuisine": ["Toscana", "Italiana"],
               "menu": "https://osteria-caorlotta.vercel.app/menu",
               "priceRange": "€€",
-              "acceptsReservations": "True",
+              "acceptsReservations": true,
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.5",
@@ -70,12 +93,13 @@ function HomePage() {
               "sameAs": [
                 "https://www.instagram.com/osteriacaorlottafirenze/",
                 "https://www.facebook.com/p/Osteria-Caorlotta-Firenze-100088978474662/",
-                "https://www.tripadvisor.it/Restaurant_Review-g187895-d25226040-Reviews-Osteria_Caorlotta-Florence_Tuscany.html"
+                "https://www.tripadvisor.it/Restaurant_Review-g187895-d25226040-Reviews-Osteria-Caorlotta-Florence_Tuscany.html"
               ]
             }
           `}
         </script>
       </Helmet>
+
 
       <div className="home-page">
         <img src={logoImage} alt="Scritta" className="homepage-logo" />
