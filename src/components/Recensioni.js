@@ -46,6 +46,31 @@ function Recensioni() {
       <Helmet>
         <title>{t('seo.recensioni_title')}</title>
         <meta name="description" content={t('seo.recensioni_description')} />
+
+        {/* Preconnect per Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Preload dei fogli di stile dei font */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+
+        <noscript>
+          {`
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap">
+          `}
+        </noscript>
       </Helmet>
       <div className="recensioni">
         <div className="overlay"></div>
@@ -53,13 +78,17 @@ function Recensioni() {
           <img
             ref={imgRef}
             src={immagini[indice]}
-            alt={`Recensione lasciata a osteria Caorlotta n: ${indice + 1}`}
+            alt={`Recensione lasciata a Osteria Caorlotta n° ${indice + 1}`}
             className="carosello-immagine"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           />
-          <button onClick={vaiIndietro} className="carosello-bottone precedente">{"<"}</button>
-          <button onClick={vaiAvanti} className="carosello-bottone successiva">{">"}</button>
+          <button onClick={vaiIndietro} className="carosello-bottone precedente">
+            {"<"}
+          </button>
+          <button onClick={vaiAvanti} className="carosello-bottone successiva">
+            {">"}
+          </button>
         </div>
       </div>
     </>

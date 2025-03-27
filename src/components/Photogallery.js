@@ -45,24 +45,23 @@ function Photogallery() {
   const galleryRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Verifica larghezza per mostrare/nascondere frecce
+  // Controlla la larghezza per decidere se è mobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    handleResize(); 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Se è mobile, resetta lo scroll (opzionale)
+  // Se mobile, resetta lo scroll
   useEffect(() => {
     if (isMobile && galleryRef.current) {
       galleryRef.current.scrollLeft = 0;
     }
   }, [isMobile]);
 
-  // Scorrimento a sinistra/destra con le frecce
   const scrollLeft = () => {
     galleryRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
   };
@@ -71,13 +70,11 @@ function Photogallery() {
     galleryRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
   };
 
-  // Click nella gallery: se clicco nella parte sinistra scorre left, altrimenti right
   const handleGalleryClick = (e) => {
     if (!galleryRef.current) return;
     const rect = galleryRef.current.getBoundingClientRect();
-    const clickX = e.clientX - rect.left; // Posizione X del click rispetto alla gallery
-    const mid = rect.width / 2;          // Punto centrale
-
+    const clickX = e.clientX - rect.left;
+    const mid = rect.width / 2;
     if (clickX < mid) {
       scrollLeft();
     } else {
@@ -90,6 +87,31 @@ function Photogallery() {
       <Helmet>
         <title>{t('seo.photogallery_title')}</title>
         <meta name="description" content={t('seo.photogallery_description')} />
+
+        {/* Preconnect per Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Preload dei fogli di stile dei font */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+
+        <noscript>
+          {`
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap">
+          `}
+        </noscript>
       </Helmet>
       <div className="photogallery-container">
         <div className="additional-layer"></div>
@@ -107,11 +129,15 @@ function Photogallery() {
           <div
             className="gallery-grid"
             ref={galleryRef}
-            onClick={handleGalleryClick}  // Usa il click per decidere scroll left/right
+            onClick={handleGalleryClick}
           >
             {images.map((image, index) => (
               <div className="gallery-item" key={index}>
-                <img src={image} alt={t('photogallery.imageAlt', { index: index + 1 })} loading="lazy" />
+                <img
+                  src={image}
+                  alt={t('photogallery.imageAlt', { index: index + 1 })}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
