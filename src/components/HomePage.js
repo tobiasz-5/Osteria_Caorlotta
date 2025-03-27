@@ -13,33 +13,6 @@ function HomePage() {
       <Helmet>
         <title>{t('seo.title')}</title>
         <meta name="description" content={t('seo.description')} />
-        
-        {/* Preconnect per Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Preload dei fogli di stile dei font */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-          onLoad="this.onload=null;this.rel='stylesheet'"
-        />
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
-          onLoad="this.onload=null;this.rel='stylesheet'"
-        />
-        
-        <noscript>
-          {`
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap">
-          `}
-        </noscript>
-
-        {/* JSON-LD per il ristorante */}
         <script type="application/ld+json">
           {`
             {
@@ -55,7 +28,7 @@ function HomePage() {
                 "postalCode": "50123",
                 "addressCountry": "IT"
               },
-              "servesCuisine": ["Toscana", "Italiana"],
+              "servesCuisine": ["Veneziana - pesce", "Italiana"],
               "menu": "https://osteria-caorlotta.vercel.app/menu",
               "priceRange": "€€",
               "acceptsReservations": true,
@@ -99,8 +72,6 @@ function HomePage() {
           `}
         </script>
       </Helmet>
-
-
       <div className="home-page">
         <img src={logoImage} alt="Scritta" className="homepage-logo" />
         <p className="homepage-subtitle">FIRENZE</p>
