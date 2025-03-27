@@ -35,7 +35,7 @@ function App() {
         </Routes>
       </header>
       <CookieBanner />
-      <Footer /> {/* Aggiungi il Footer qui */}
+      <Footer /> {/* Aggiungi il Footer qui  */}
     </div>
   );
 }
