@@ -40,7 +40,7 @@ function Navbar() {
       <div className="navbar-content">
         <div className="navbar-logo">
           <Link to="/">
-            <img src={logo} alt="Il Logo Caorlotta" loading="lazy" fetchpriority="low"/>
+            <img src={logo} alt="Il Logo Caorlotta" loading="eager" fetchpriority="high"/>
           </Link>
         </div>
         <button
