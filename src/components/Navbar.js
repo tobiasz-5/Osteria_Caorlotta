@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../assets/images/logo.webp';
+import logo from '../assets/images/logo3.webp';
 import { useTranslation } from 'react-i18next';
 
 function Navbar() {
@@ -40,7 +40,7 @@ function Navbar() {
       <div className="navbar-content">
         <div className="navbar-logo">
           <Link to="/">
-            <img src={logo} alt="Il Logo Caorlotta" loading="eager" fetchpriority="high"/>
+            <img src={logo} alt="Il Logo Caorlotta"/>
           </Link>
         </div>
         <button
