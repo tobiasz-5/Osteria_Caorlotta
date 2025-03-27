@@ -26,7 +26,7 @@ function CookieBanner() {
 
   return (
     showBanner && (
-      <div className="cookie-banner">
+      <div className="cookie-banner" aria-hidden={!showBanner}>
         <CookieConsent
           location="bottom"
           buttonText={t('accettaCookie')}
