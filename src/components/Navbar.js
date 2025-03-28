@@ -64,8 +64,8 @@ function Navbar() {
               <img
                 src={logo}
                 alt="Il Logo Caorlotta"
-                loading="lazy"
-                fetchpriority="low"
+                loading="eager"
+                fetchpriority="high"
                 className="delayed-logo"
               />
             )}
