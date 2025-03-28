@@ -1,7 +1,7 @@
 /* src/components/CookieBanner.css */
 
 .cookie-banner {
-  z-index: 0 !important;
+  z-index: 1 !important;
   position: fixed;
 }
 /* Evita che gli stili globali si applichino ai pulsanti all'interno del CookieBanner */
