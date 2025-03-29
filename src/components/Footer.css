@@ -5,11 +5,9 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  opacity: 0.9;
+  opacity: 0.8;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-  padding: 0px 8px;
-  height: 28px;
-  padding-top: 4px;
+  padding: 0px 8px; 
 }
 
 .footer-content {
@@ -42,7 +40,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;    
-  gap: 20px;               
+  gap: 10px;               
 }
 
 .footer-center p {
@@ -67,7 +65,7 @@
 /* Social icons */
 .social-links {
   display: inline-flex;
-  gap: 14px;
+  gap: 15px;
 }
 
 .social-icon {
