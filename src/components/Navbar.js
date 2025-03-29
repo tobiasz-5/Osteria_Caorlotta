@@ -66,6 +66,7 @@ function Navbar() {
                 alt="Il Logo Caorlotta"
                 loading="eager"
                 fetchpriority="high"
+                width="120" height="100"
                 // className="delayed-logo"
               />
             )}
