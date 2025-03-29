@@ -103,7 +103,7 @@ function HomePage() {
 
       <div className="home-page">
         <h1 className="visually-hidden">Osteria Caorlotta - Ristorante a Firenze</h1>
-        <img src={logoImage} alt="Scritta" className="homepage-logo" width="1200" height="auto" />
+        <img src={logoImage} alt="Scritta" className="homepage-logo" width="1200" height="100" />
         <h2 className="homepage-subtitle">FIRENZE</h2>
         <div className="home-buttons">
           <Link to="/prenotazione">
