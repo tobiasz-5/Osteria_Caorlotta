@@ -61,15 +61,15 @@ function PrenotazioneForm() {
       return;
     }
   
-    const encodedData = new URLSearchParams();
+    const params = new URLSearchParams();
     for (let key in formData) {
-      encodedData.append(key, formData[key]);
+      params.append(key, formData[key]);
     }
   
     try {
       const response = await fetch("https://formspree.io/f/xoqgozly", {
         method: "POST",
-        body: encodedData.toString(),
+        body: params,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
           Accept: "application/json",
@@ -89,9 +89,12 @@ function PrenotazioneForm() {
           note: '',
         });
       } else {
+        const data = await response.json();
+        console.error("Formspree error:", data);
         setStatus("ERROR");
       }
     } catch (error) {
+      console.error("Fetch error:", error);
       setStatus("ERROR");
     }
   };
