@@ -11,12 +11,10 @@ function PrenotazioneForm() {
     telefono: '',
     email: '',
     coperti: '',
-    data: '',
+    data: null, // usare null per indicare l'assenza di data
     orario: '',
     note: '',
   });
-
-  const [status, setStatus] = useState(null);
 
   const orariPranzo = ['12:30', '12:45', '13:00', '13:15', '13:30', '13:45'];
   const orariCena = [
@@ -39,7 +37,6 @@ function PrenotazioneForm() {
         return ore * 60 + minuti > oraCorrente;
       });
     }
-
     return orari;
   };
 
@@ -48,60 +45,31 @@ function PrenotazioneForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
+  // Gestione della validazione prima dell'invio del form
+  // Notate che non usiamo e.preventDefault() se la validazione va a buon fine,
+  // lasciando al browser il compito di inviare il form in modo tradizionale.
+  const handleSubmit = (e) => {
     const copertiNum = parseInt(formData.coperti, 10);
-    if (copertiNum < 1) {
+    if (isNaN(copertiNum) || copertiNum < 1) {
       alert('Il numero di coperti deve essere almeno 1.');
+      e.preventDefault();
       return;
     }
     if (copertiNum > 4) {
       alert(t('contattaRistorante'));
+      e.preventDefault();
       return;
     }
-  
-    const params = new URLSearchParams();
-    for (let key in formData) {
-      params.append(key, formData[key]);
-    }
-  
-    try {
-      const response = await fetch("https://formspree.io/f/xoqgozly", {
-        method: "POST",
-        body: params,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Accept: "application/json",
-        },
-      });
-  
-      if (response.ok) {
-        setStatus("SUCCESS");
-        setFormData({
-          nome: '',
-          cognome: '',
-          telefono: '',
-          email: '',
-          coperti: '',
-          data: '',
-          orario: '',
-          note: '',
-        });
-      } else {
-        const data = await response.json();
-        console.error("Formspree error:", data);
-        setStatus("ERROR");
-      }
-    } catch (error) {
-      console.error("Fetch error:", error);
-      setStatus("ERROR");
-    }
+    // Se le validazioni passano, il form verrà inviato normalmente
   };
-  
 
   return (
-    <form onSubmit={handleSubmit}>
+    // Specifica l'azione del form (URL Formspree) e il metodo POST
+    <form
+      action="https://formspree.io/f/xoqgozly"
+      method="POST"
+      onSubmit={handleSubmit}
+    >
       <div>
         <input
           type="text"
@@ -154,6 +122,7 @@ function PrenotazioneForm() {
         />
       </div>
       <div>
+        {/* Il DatePicker visualizza la data, ma per inviare il dato in modo nativo usiamo un campo hidden */}
         <DatePicker
           selected={formData.data}
           onChange={(date) => setFormData({ ...formData, data: date })}
@@ -162,6 +131,11 @@ function PrenotazioneForm() {
           placeholderText={t('selezionaData')}
           dateFormat="dd/MM/yyyy"
           required
+        />
+        <input
+          type="hidden"
+          name="data"
+          value={formData.data ? formData.data.toISOString() : ''}
         />
       </div>
       <div>
@@ -204,17 +178,6 @@ function PrenotazioneForm() {
       <div style={{ flex: '1 1 100%' }}>
         <button type="submit" className="btn btn-submit">{t('prenota')}</button>
       </div>
-
-      {status === "SUCCESS" && (
-        <p style={{ color: "green", marginTop: "10px" }}>
-          Richiesta inviata! Riceverai una conferma via email.
-        </p>
-      )}
-      {status === "ERROR" && (
-        <p style={{ color: "red", marginTop: "10px" }}>
-          Errore durante l'invio. Riprova più tardi.
-        </p>
-      )}
     </form>
   );
 }
