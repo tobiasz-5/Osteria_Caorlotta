@@ -50,7 +50,7 @@ function PrenotazioneForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const copertiNum = parseInt(formData.coperti, 10);
     if (copertiNum < 1) {
       alert('Il numero di coperti deve essere almeno 1.');
@@ -60,21 +60,22 @@ function PrenotazioneForm() {
       alert(t('contattaRistorante'));
       return;
     }
-
-    const data = new FormData();
+  
+    const encodedData = new URLSearchParams();
     for (let key in formData) {
-      data.append(key, formData[key]);
+      encodedData.append(key, formData[key]);
     }
-
+  
     try {
       const response = await fetch("https://formspree.io/f/xoqgozly", {
         method: "POST",
-        body: data,
+        body: encodedData.toString(),
         headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
           Accept: "application/json",
         },
       });
-
+  
       if (response.ok) {
         setStatus("SUCCESS");
         setFormData({
@@ -94,6 +95,7 @@ function PrenotazioneForm() {
       setStatus("ERROR");
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>
