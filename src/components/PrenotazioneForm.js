@@ -16,38 +16,31 @@ function PrenotazioneForm() {
     note: '',
   });
 
-  // Definisci orariPranzo e orariCena come costanti
+  const [status, setStatus] = useState(null);
+
   const orariPranzo = ['12:30', '12:45', '13:00', '13:15', '13:30', '13:45'];
   const orariCena = [
     '19:00', '19:15', '19:30', '19:45', '20:00',
     '20:15', '20:30', '20:45', '21:00', '21:15', '21:30', '21:45'
   ];
 
-  // Funzione per gestire i giorni di chiusura
-  const giorniChiusura = (date) => {
-    const giorno = date.getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
-    return giorno !== 1; // Lunedì chiuso tutto il giorno
-  };
+  const giorniChiusura = (date) => date.getDay() !== 1;
 
-  // Funzione per filtrare orari passati nel giorno corrente
   const orariFiltratiPerOggi = (orari) => {
     const oggi = new Date();
     const oggiString = oggi.toLocaleDateString();
-    
     const dataSelezionata = formData.data instanceof Date ? formData.data : new Date(formData.data);
     const dataSelezionataString = dataSelezionata.toLocaleDateString();
 
     if (oggiString === dataSelezionataString) {
-      const oraCorrente = oggi.getHours() * 60 + oggi.getMinutes(); // Ora attuale in minuti
-      // Filtra gli orari che sono già passati per il giorno corrente
+      const oraCorrente = oggi.getHours() * 60 + oggi.getMinutes();
       return orari.filter(orario => {
         const [ore, minuti] = orario.split(':').map(Number);
-        const orarioMinuti = ore * 60 + minuti;
-        return orarioMinuti > oraCorrente;
+        return ore * 60 + minuti > oraCorrente;
       });
     }
 
-    return orari; // Se non è oggi, restituisci tutti gli orari
+    return orari;
   };
 
   const handleChange = (e) => {
@@ -55,17 +48,51 @@ function PrenotazioneForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (parseInt(formData.coperti, 10) < 1) {
+
+    const copertiNum = parseInt(formData.coperti, 10);
+    if (copertiNum < 1) {
       alert('Il numero di coperti deve essere almeno 1.');
       return;
     }
-    if (parseInt(formData.coperti, 10) > 4) {
+    if (copertiNum > 4) {
       alert(t('contattaRistorante'));
       return;
     }
-    console.log('Dati del form:', formData);
+
+    const data = new FormData();
+    for (let key in formData) {
+      data.append(key, formData[key]);
+    }
+
+    try {
+      const response = await fetch("https://formspree.io/f/xoqgozly", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setStatus("SUCCESS");
+        setFormData({
+          nome: '',
+          cognome: '',
+          telefono: '',
+          email: '',
+          coperti: '',
+          data: '',
+          orario: '',
+          note: '',
+        });
+      } else {
+        setStatus("ERROR");
+      }
+    } catch (error) {
+      setStatus("ERROR");
+    }
   };
 
   return (
@@ -118,7 +145,7 @@ function PrenotazioneForm() {
           value={formData.coperti}
           onChange={handleChange}
           required
-          min="1" 
+          min="1"
         />
       </div>
       <div>
@@ -140,12 +167,10 @@ function PrenotazioneForm() {
           required
         >
           <option value="">{t('selezionaOrario')}</option>
-
           {!formData.data ? (
             <option disabled>{t('scegliPrimaLaData')}</option>
           ) : (
             <>
-              {/* Mostra pranzo solo nei giorni in cui è aperto */}
               {formData.data && ![2, 3, 4].includes(new Date(formData.data).getDay()) && (
                 <optgroup label={t('pranzo')}>
                   {orariFiltratiPerOggi(orariPranzo).map((time) => (
@@ -153,10 +178,7 @@ function PrenotazioneForm() {
                   ))}
                 </optgroup>
               )}
-
               <option disabled>──────────</option>
-
-              {/* Mostra sempre gli orari di cena */}
               <optgroup label={t('cena')}>
                 {orariFiltratiPerOggi(orariCena).map((time) => (
                   <option key={time} value={time}>{time}</option>
@@ -169,7 +191,7 @@ function PrenotazioneForm() {
       <div style={{ flex: '1 1 100%' }}>
         <textarea
           name="note"
-          placeholder={t('note')}
+          placeholder={`${t('note')} (${t('confermaRichiesta') || 'Attendi conferma via email'})`}
           value={formData.note}
           onChange={handleChange}
         />
@@ -177,6 +199,17 @@ function PrenotazioneForm() {
       <div style={{ flex: '1 1 100%' }}>
         <button type="submit" className="btn btn-submit">{t('prenota')}</button>
       </div>
+
+      {status === "SUCCESS" && (
+        <p style={{ color: "green", marginTop: "10px" }}>
+          Richiesta inviata! Riceverai una conferma via email.
+        </p>
+      )}
+      {status === "ERROR" && (
+        <p style={{ color: "red", marginTop: "10px" }}>
+          Errore durante l'invio. Riprova più tardi.
+        </p>
+      )}
     </form>
   );
 }
