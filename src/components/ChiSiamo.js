@@ -66,8 +66,8 @@ function ChiSiamo() {
           <img src={ingresso} alt="ristorante osteria caorlotta, ingresso" className="hidden" />
           {/* Sostituisci il testo fisso con t('chi_siamo.testo_1') */}
           <p className="testo_sez_1 hidden">
-            <h2 style={{ marginBottom: '0.2rem' }}>LA NOSTRA STORIA</h2>
-            <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>DA VENEZIA A FIRENZE</h3>
+            <h2 style={{ marginBottom: '0.2rem', fontSize: '1.8rem' }}>{t('chi_siamo.titolo_1')}</h2>
+            <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.3rem' }}>{t('chi_siamo.sottotitolo_1')}</h3>
             {t('chi_siamo.testo_1')}
           </p>
         </div>
@@ -84,8 +84,8 @@ function ChiSiamo() {
         <div className="section-three">
           <img src={insieme} alt="Ristorante sul lungarno, cucina di pesce" className="hidden" />
           <p className="testo_sez_3 hidden">
-            <h2 style={{ marginBottom: '0.2rem' }}>IL PESCATO</h2>
-            <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>IL MARE NEL VOSTRO PIATTO</h3>
+            <h2 style={{ marginBottom: '0.2rem', fontSize: '1.8rem' }}>{t('chi_siamo.titolo_2')}</h2>
+            <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.3rem' }}>{t('chi_siamo.sottotitolo_2')}</h3>
             {t('chi_siamo.testo_3')}
           </p>
         </div>
@@ -95,8 +95,8 @@ function ChiSiamo() {
           <p className="testo_sez_4 hidden">
             {/* <h2 className="titolo-pescato">IL RISTORANTE</h2>
             <h3 className="sottotitolo-pescato">UN AMBIENTE STORICO E AFFASCINANTE</h3> */}
-            <h2 style={{ marginBottom: '0.2rem' }}>IL RISTORANTE</h2>
-            <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>UN AMBIENTE STORICO E AFFASCINANTE</h3>
+            <h2 style={{ marginBottom: '0.2rem', fontSize: '1.8rem' }}>{t('chi_siamo.titolo_3')}</h2>
+            <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.3rem' }}>{t('chi_siamo.sottotitolo_3')}</h3>
             {t('chi_siamo.testo_4')}
           </p>
           {/* <img src={guanti} alt="seafood, cucina di pesce, carpaccio di tonno" className="hidden" /> */}
