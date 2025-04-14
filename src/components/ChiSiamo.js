@@ -93,8 +93,6 @@ function ChiSiamo() {
         {/* Sezione 4 (img destra, testo a sinistra) */}
         <div className="section-four">
           <p className="testo_sez_4 hidden">
-            {/* <h2 className="titolo-pescato">IL RISTORANTE</h2>
-            <h3 className="sottotitolo-pescato">UN AMBIENTE STORICO E AFFASCINANTE</h3> */}
             <h2 style={{ marginBottom: '0.2rem', fontSize: '1.8rem' }}>{t('chi_siamo.titolo_3')}</h2>
             <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.3rem' }}>{t('chi_siamo.sottotitolo_3')}</h3>
             {t('chi_siamo.testo_4')}
