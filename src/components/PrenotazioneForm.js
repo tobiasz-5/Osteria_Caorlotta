@@ -113,7 +113,7 @@ function PrenotazioneForm() {
       <div>
         <input
           type="number"
-          name="coperti"
+          name="Numero Coperti"
           placeholder={t('coperti')}
           value={formData.coperti}
           onChange={handleChange}
