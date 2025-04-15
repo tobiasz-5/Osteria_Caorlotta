@@ -61,8 +61,20 @@ function Footer() {
 
       {/* Colonna destra */}
       <div className="footer-right">
-        <p>Credits: T. Schettini - T.N.T Media & Communication </p>
-      </div>
+        <p>
+          Credits:{" "}
+          <a 
+            href="https://my-website-indol-tau.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="custom-link"
+          >
+            T. Schettini
+          </a>{" "}
+          - T.N.T Media & Communication
+        </p>
+</div>
+
     </div>
   </footer>
   );

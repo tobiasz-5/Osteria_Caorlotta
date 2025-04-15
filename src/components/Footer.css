@@ -62,6 +62,17 @@
   color: #f5f5f5;
 }
 
+.custom-link {
+  color: white;
+}
+
+
+.custom-link:hover,
+.custom-link:active {
+  color: #2222ff;
+}
+
+
 /* Social icons */
 .social-links {
   display: inline-flex;
