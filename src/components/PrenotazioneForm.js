@@ -170,7 +170,7 @@ function PrenotazioneForm() {
       <div style={{ flex: '1 1 100%' }}>
         <textarea
           name="note"
-          placeholder={`${t('note')} (${t('confermaRichiesta') || 'Attendi conferma via email'})`}
+          placeholder={t('note')} 
           value={formData.note}
           onChange={handleChange}
         />
