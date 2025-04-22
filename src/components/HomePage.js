@@ -15,8 +15,8 @@ function HomePage() {
         <meta name="description" content={t('seo.description')} />
         <meta property="og:title" content="Osteria Caorlotta – Ristorante di pesce a Firenze" />
         <meta property="og:description" content="Scopri i sapori autentici del mare nel cuore di Firenze. Prenota ora il tuo tavolo all'Osteria Caorlotta." />
-        {/* <meta property="og:image" content="https://www.osteriacaorlotta-firenze.it/og-preview.jpg" /> */}
         <meta property="og:image" content="https://www.osteriacaorlotta-firenze.it/sala1.webp" />
+        <meta property="og:image:secure_url" content="https://www.osteriacaorlotta-firenze.it/sala1.webp" />
         <meta property="og:url" content="https://www.osteriacaorlotta-firenze.it/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Osteria Caorlotta" />
