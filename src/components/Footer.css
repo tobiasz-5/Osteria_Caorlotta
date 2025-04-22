@@ -67,8 +67,7 @@
 }
 
 
-.custom-link:hover,
-.custom-link:active {
+.custom-link:hover {
   color: #2222ff;
 }
 

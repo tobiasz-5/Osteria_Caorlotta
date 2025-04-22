@@ -71,7 +71,7 @@ function Footer() {
           >
             T. Schettini
           </a>{" "}
-          - T.N.T Media & Communication
+            | T.N.T Media & Communication
         </p>
 </div>
 
