@@ -6,11 +6,16 @@
 }
 /* Evita che gli stili globali si applichino ai pulsanti all'interno del CookieBanner */
 .cookie-banner button {
-    font-size: 14px;
-    border-radius: 25px !important;
-    cursor: pointer;
-    background: none !important;
+  font-size: 14px;
+  border-radius: 25px !important;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  background-color: #dbcfa1;
+  color: #222;
+  font-weight: bold;
 }
+
 
 .cookie-banner a {
   color: #002011 !important; /* Colore del link (personalizzabile) */

@@ -9,12 +9,13 @@ function CookieBanner() {
 
   const handleAccept = () => {
     Cookies.set("acceptCookies", "true", { expires: 150 });
-    window.location.reload(); // Ricarica la pagina per attivare Google Maps
+    window.location.reload(); // ricarica per attivare mappa
   };
 
   const handleReject = () => {
-    Cookies.remove("acceptCookies");
+    Cookies.set("acceptCookies", "false", { expires: 150 }); // esplicita scelta rifiuto
     console.log("Cookie non essenziali rifiutati");
+    // non serve reload, ma chiude il banner
   };
 
   return (
@@ -28,6 +29,9 @@ function CookieBanner() {
         onDecline={handleReject}
         cookieName="acceptCookies"
         expires={150}
+        style={{ background: "#222" }}
+        buttonStyle={{ background: "#dbcfa1", color: "#222", fontWeight: "bold" }}
+        declineButtonStyle={{ background: "#fff", color: "#222", fontWeight: "bold" }}
       >
         {t('messaggioCookie')}{" "}
         <a href="/privacy-policy" style={{ color: "#d0d0c9", textDecoration: 'underline' }}>
