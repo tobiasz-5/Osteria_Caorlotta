@@ -10,12 +10,22 @@ function DoveSiamo() {
   const [showMap, setShowMap] = useState(false);
 
   useEffect(() => {
-    // Controlla se l'utente ha accettato i cookie
     const consent = Cookies.get("acceptCookies");
     if (consent === "true") {
-      setShowMap(true); // Mostra la mappa solo se il consenso è stato dato
+      setShowMap(true);
+    } else {
+      // Ascolta eventuali cambiamenti dopo il primo caricamento
+      const interval = setInterval(() => {
+        const updatedConsent = Cookies.get("acceptCookies");
+        if (updatedConsent === "true") {
+          setShowMap(true);
+          clearInterval(interval); // Evita loop infinito
+        }
+      }, 1000);
+      return () => clearInterval(interval);
     }
   }, []);
+  
 
   return (
     <>
