@@ -1,17 +1,81 @@
-.privacy-policy {
-    background-color: rgb(44, 44, 44);
-    font-size: 12px;
+/* =========================
+   STILI GENERALI DESKTOP
+   ========================= */
+   .privacy-policy {
+    background-color: white; /* copre l’intero contenitore */
+    color: black;
+    font-size: 20px;
     width: 100%;
     padding-top: 142px;
     padding-bottom: 242px;
-}
-
-.privacy-policy a {
-    margin-left: 4px; /* Aggiunge spazio a sinistra del link */
-    color: #0066cc; /* Cambia il colore del link (puoi scegliere un colore più visibile) */
-    text-decoration: underline; /* Facoltativo: aggiunge una sottolineatura */
-}
-
-.privacy-policy a:hover {
-    color: #008049; /* Cambia colore del link al passaggio del mouse */
+    line-height: 1.5;
   }
+  
+  /* annulla max-width e margini della .container di Bootstrap/Reactstrap */
+  .privacy-policy.container {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 1rem;   /* respiro laterale opzionale */
+    padding-right: 1rem;
+  }
+  
+  /* link */
+  .privacy-policy a {
+    margin-left: 4px;
+    color: #0066cc;
+    text-decoration: underline;
+  }
+  .privacy-policy a:hover {
+    color: #008049;
+  }
+  
+  /* tabelle orizzontali e centrate (desktop) */
+  .privacy-policy table {
+    margin: 0 auto;
+    width: 50%;           /* puoi aumentare o ridurre a piacere */
+  }
+  
+  /* =========================
+     MOBILE FIRST ≤ 640 px
+     ========================= */
+  @media (max-width: 640px) {
+    /* testo e spaziature ridotti */
+    .privacy-policy {
+      font-size: 16px;
+      padding-top: 80px;
+      padding-bottom: 120px;
+    }
+  
+    /* tabelle diventano blocchi verticali */
+    .privacy-policy table,
+    .privacy-policy thead,
+    .privacy-policy tbody,
+    .privacy-policy th,
+    .privacy-policy td,
+    .privacy-policy tr {
+      display: block;
+      width: 100%;
+    }
+  
+    /* nasconde l’intestazione */
+    .privacy-policy thead {
+      position: absolute;
+      left: -9999px;
+    }
+  
+    /* riga come “card” verticale */
+    .privacy-policy tr {
+      margin-bottom: 1.25rem;  /* 20 px */
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+    }
+  
+    /* etichetta visibile prima del valore (accessibilità) */
+    .privacy-policy td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+  }
+  
