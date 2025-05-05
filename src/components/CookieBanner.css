@@ -62,7 +62,7 @@
     transform: translate(-50%, -50%); /* Per centrare perfettamente */
     background-color: rgba(119, 119, 110, 0.98) !important;
     border-radius: 20px;
-    padding: 20px; /* Aggiungi un po' di spazio interno */
+    padding: 45px  20px; /* Aggiungi un po' di spazio interno */
     z-index: 9999; /* Assicurati che sia sopra gli altri elementi */
     width: 90%; /* Per adattarsi a schermi piccoli */
     max-width: 600px; /* Limita la larghezza massima */
