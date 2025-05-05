@@ -137,6 +137,14 @@ function PrivacyPolicy() {
             </tbody>
           </table>
 
+          <h3>Come gestire i cookie</h3>
+          <p>
+            Puoi accettare o rifiutare i cookie al primo accesso tramite il banner. In qualsiasi momento puoi
+            revocare o modificare il tuo consenso cliccando su <strong>“Gestisci cookie”</strong> nel footer del sito.
+          </p>
+
+          <p>I Google Fonts vengono caricati da fonti sicure (HTTPS), ma non utilizzano l’integrità delle risorse (SRI). Nessun cookie viene installato da Google Fonts.</p>
+
           <h2>6. Trasferimenti verso Paesi extra-UE</h2>
           <p>
             Possibili verso USA con garanzie adeguate (EU-US DPF o SCC). Copia disponibile su richiesta.
@@ -262,6 +270,14 @@ function PrivacyPolicy() {
               </tr>
             </tbody>
           </table>
+
+          <h3>How to manage cookies</h3>
+          <p>
+            You can accept or reject cookies upon first visit using the banner. At any time, you can revoke
+            or update your preferences by clicking on <strong>“Manage cookies”</strong> in the footer of the website.
+          </p>
+
+          <p>Google Fonts are loaded from secure sources (HTTPS) but do not use Subresource Integrity (SRI). No cookies are set by Google Fonts.</p>
 
           <h2>6. International Transfers</h2>
           <p>
