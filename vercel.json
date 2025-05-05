@@ -1,7 +1,6 @@
 {
   "headers": [
     {
-      /* ➊ — caching statico per asset */
       "source": "/(.*)\\.(webp|jpg|jpeg|png|svg|css|js)",
       "headers": [
         {
@@ -11,7 +10,6 @@
       ]
     },
     {
-      /* ➋ — security & privacy header applicati a tutto il resto */
       "source": "/(.*)",
       "headers": [
         {
