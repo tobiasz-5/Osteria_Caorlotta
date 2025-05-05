@@ -103,7 +103,7 @@
     display: block !important;
     text-align: center !important;
     width: 100% !important;
-    padding: 20px !important; /* Più spazio interno */
+    padding: 60px 20px !important; /* Più spazio interno */
     box-sizing: border-box; /* Garantisce che padding non faccia sforare la larghezza */
   }
 
