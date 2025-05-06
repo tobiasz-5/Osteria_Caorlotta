@@ -17,11 +17,15 @@
   gap: 0.75rem;     /* distanza fra elementi */
   align-items: center;
   flex-wrap: wrap;  /* va a capo su schermi minuscoli */
+  /* max-width: 800px; */
+  /* margin-left: -100px; */
 }
 
 .footer-link {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
+  color: white;
+  font-size: 16px !important;
 }
 
 .btn-reset {
@@ -56,13 +60,14 @@
 
 .footer-center {
   flex: 1;
-  padding-left: 90px;
+  /* padding-left: 10px; */
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;    
-  gap: 10px;               
+  gap: 10px;
+  /* text-wrap: nowrap;               */
 }
 
 .footer-center p {
@@ -86,6 +91,8 @@
 
 .custom-link {
   color: white;
+  text-decoration: none;
+
 }
 
 

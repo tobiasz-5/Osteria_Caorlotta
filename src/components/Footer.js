@@ -21,7 +21,7 @@ function Footer() {
       <div className="footer-content">
         {/* Colonna sinistra */}
         <div className="footer-left">
-          <p>Lungarno Amerigo Vespucci – 34r</p>
+          {/* <p>Lungarno Amerigo Vespucci – 34r</p> */}
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link to="/privacy-policy" className="footer-link">
               Privacy & Cookie Policy
