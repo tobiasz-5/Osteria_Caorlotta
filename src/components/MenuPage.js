@@ -51,23 +51,36 @@ function MenuPage() {
         <title>{t('seo.menu_title')}</title>
         <meta name="description" content={t('seo.menu_description')} />
 
-        {/* Preconnect per Google Fonts */}
+        {/* Pre-connect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 
-        {/* Preload dei fogli di stile dei font */}
+        {/* Pre-load Montserrat */}
         <link
           rel="preload"
           as="style"
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-          onLoad="this.onload=null;this.rel='stylesheet'"
+          crossorigin="anonymous"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+          crossorigin="anonymous"
+        />
+
+        {/* Pre-load Cormorant Garamond */}
         <link
           rel="preload"
           as="style"
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
-          onLoad="this.onload=null;this.rel='stylesheet'"
+          crossorigin="anonymous"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+          crossorigin="anonymous"
+        />
+
 
         <noscript>
           {`
