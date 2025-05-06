@@ -21,23 +21,34 @@ function HomePage() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Osteria Caorlotta" />
   
-        {/* Preconnect per Google Fonts */}
+        {/* Pre-connect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Preload dei fogli di stile dei font */}
+
+        {/* Pre-load Montserrat */}
         <link
           rel="preload"
           as="style"
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-          onLoad="this.onload=null;this.rel='stylesheet'"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+          crossOrigin="anonymous"
+        />
+
+        {/* Pre-load Cormorant Garamond */}
         <link
           rel="preload"
           as="style"
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
-          onLoad="this.onload=null;this.rel='stylesheet'"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+          crossOrigin="anonymous"
+        />
+
         
         <noscript>
           {`
