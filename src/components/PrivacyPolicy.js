@@ -174,10 +174,7 @@ function PrivacyPolicy() {
           <h2>8. Profilazione</h2>
           <p>Nessuna decisione automatizzata o profilazione viene effettuata.</p>
 
-          <h2>9. Misure di sicurezza</h2>
-          <p>TLS 1.3, backup cifrati, firewall, principio del minimo privilegio.</p>
-
-          <h2>10. Diritti dell’utente</h2>
+          <h2>9. Diritti dell’utente</h2>
           <p>
             Accesso, rettifica, cancellazione, limitazione, opposizione, portabilità (artt. 15-22 GDPR)
             e reclamo al <a href="https://www.gpdp.it">Garante Privacy</a>. Scrivi a&nbsp;
@@ -309,10 +306,7 @@ function PrivacyPolicy() {
           <h2>8. Profiling</h2>
           <p>No automated decision-making or profiling is carried out.</p>
 
-          <h2>9. Security Measures</h2>
-          <p>TLS 1.3, encrypted backups, firewall, least-privilege access.</p>
-
-          <h2>10. User Rights</h2>
+          <h2>9. User Rights</h2>
           <p>
             Access, rectification, erasure, restriction, portability, objection (Art. 15-22 GDPR) and
             complaint to the Italian Supervisory Authority (<a href="https://www.gpdp.it">gpdp.it</a>). Requests:&nbsp;
